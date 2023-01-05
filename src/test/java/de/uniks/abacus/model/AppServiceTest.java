@@ -34,7 +34,7 @@ public class AppServiceTest {
 
         Result resultPlayer = player.getHistories().get(0).getResults().get(0);
         int playerInput = 7;
-        boolean howResult = AS.checkResult(rightVal, resultPlayer.setResultVal(playerInput));
+        boolean howResult = AS.checkResult(resultPlayer.setResultVal(playerInput));
 
         assertEquals(rightVal == playerInput, howResult);
 
