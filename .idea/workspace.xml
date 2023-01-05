@@ -101,7 +101,30 @@
       <recent name="$PROJECT_DIR$/src/gen/java" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.sempoa-javaFX [build]">
+  <component name="RunManager" selected="Gradle.AppServiceTest">
+    <configuration name="AppServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;de.uniks.abacus.model.AppServiceTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="sempoa-javaFX [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -167,6 +190,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.AppServiceTest" />
         <item itemvalue="Gradle.sempoa-javaFX [build]" />
         <item itemvalue="Gradle.sempoa-javaFX [generateScenarioSource]" />
         <item itemvalue="Gradle.sempoa-javaFX [dependencies]" />
@@ -182,7 +206,7 @@
       <option name="presentableId" value="Default" />
       <updated>1672878552184</updated>
       <workItem from="1672878553190" duration="2495000" />
-      <workItem from="1672908862658" duration="5153000" />
+      <workItem from="1672908862658" duration="6192000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1672879844809</created>
@@ -219,7 +243,28 @@
       <option name="project" value="LOCAL" />
       <updated>1672911259188</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="refactor: add name in Player class">
+      <created>1672914451882</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1672914451882</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: creating AppServiceTest">
+      <created>1672914494501</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1672914494501</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: creating AppServiceTest">
+      <created>1672914510891</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1672914510891</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,6 +277,8 @@
     <MESSAGE value="refactor: generate classDiagramSVG" />
     <MESSAGE value="fix: adjust with the GenModel and new gradle.build" />
     <MESSAGE value="fix: test" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: test" />
+    <MESSAGE value="refactor: add name in Player class" />
+    <MESSAGE value="feat: creating AppServiceTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: creating AppServiceTest" />
   </component>
 </project>
