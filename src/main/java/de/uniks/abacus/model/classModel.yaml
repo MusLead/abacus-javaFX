@@ -13,7 +13,7 @@
   modified: 	false
   name: 	Result
   propertyStyle: 	Bean
-  roles: 	result_history
+  roles: 	result_history 	result_player
 
 - history: 	org.fulib.classmodel.Clazz
   attributes: 	history_rightResultTotal 	history_wrongResultTotal 	history_time 	history_finish
@@ -29,7 +29,7 @@
   modified: 	false
   name: 	Player
   propertyStyle: 	Bean
-  roles: 	player_histories
+  roles: 	player_results 	player_histories
 
 - c1: 	org.fulib.classmodel.CollectionType
   implClass: 	class java.util.ArrayList
@@ -100,6 +100,16 @@
   modified: 	false
   name: 	history
   other: 	history_results
+  propertyStyle: 	Bean
+
+- result_player: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	result
+  id: 	Result_player
+  modified: 	false
+  name: 	player
+  other: 	player_results
   propertyStyle: 	Bean
 
 - history_rightResultTotal: 	org.fulib.classmodel.Attribute
@@ -186,6 +196,18 @@
   propertyStyle: 	Bean
   type: 	String
   typeSignature: 	String
+
+- player_results: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	player
+  collectionType: 	c1
+  id: 	Player_results
+  modified: 	false
+  name: 	results
+  other: 	result_player
+  propertyStyle: 	Bean
+  roleType: 	"java.util.ArrayList<%s>"
 
 - player_histories: 	org.fulib.classmodel.AssocRole
   aggregation: 	false

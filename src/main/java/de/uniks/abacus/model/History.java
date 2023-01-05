@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.Collection;
 import java.beans.PropertyChangeSupport;
 
+@SuppressWarnings({"unused","UnusedReturnValue"})
 public class History
 {
    public static final String PROPERTY_RIGHT_RESULT_TOTAL = "rightResultTotal";

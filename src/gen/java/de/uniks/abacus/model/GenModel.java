@@ -15,6 +15,8 @@ public class GenModel implements ClassModelDecorator{
         String name;
         @Link("player")
         List<History> histories;
+        @Link("player")
+        List<Result> results;
     }
 
     class History {
@@ -37,6 +39,8 @@ public class GenModel implements ClassModelDecorator{
         int rightVal;
         @Link("results")
         History history;
+        @Link("results")
+        Player player;
     }
 
     @Override

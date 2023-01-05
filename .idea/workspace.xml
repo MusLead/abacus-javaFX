@@ -66,6 +66,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2JstKJTt4QrUNXB9J96y9Zvv6a1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -116,6 +119,29 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;de.uniks.abacus.model.AppServiceTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="AppServiceTest.checkDivisionTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;de.uniks.abacus.model.AppServiceTest.checkDivisionTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -191,6 +217,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.AppServiceTest" />
+        <item itemvalue="Gradle.AppServiceTest.checkDivisionTest" />
         <item itemvalue="Gradle.sempoa-javaFX [build]" />
         <item itemvalue="Gradle.sempoa-javaFX [generateScenarioSource]" />
         <item itemvalue="Gradle.sempoa-javaFX [dependencies]" />
@@ -206,7 +233,7 @@
       <option name="presentableId" value="Default" />
       <updated>1672878552184</updated>
       <workItem from="1672878553190" duration="2495000" />
-      <workItem from="1672908862658" duration="6369000" />
+      <workItem from="1672908862658" duration="20228000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1672879844809</created>
@@ -271,22 +298,39 @@
       <option name="project" value="LOCAL" />
       <updated>1672915179137</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="pref: modify AppServiceTest">
+      <created>1672915560110</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1672915560110</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat: add some services">
+      <created>1672915639230</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1672915639230</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial commit" />
-    <MESSAGE value="feat: generate UML classes" />
-    <MESSAGE value="feat: generate classDiagramSVG" />
-    <MESSAGE value="refactor: generate classDiagramSVG" />
-    <MESSAGE value="fix: adjust with the GenModel and new gradle.build" />
-    <MESSAGE value="fix: test" />
-    <MESSAGE value="refactor: add name in Player class" />
-    <MESSAGE value="feat: creating AppServiceTest" />
-    <MESSAGE value="pref: modify AppServiceTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="pref: modify AppServiceTest" />
+    <MESSAGE value="feat: add some services" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add some services" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/model/AppService.java</url>
+          <line>118</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

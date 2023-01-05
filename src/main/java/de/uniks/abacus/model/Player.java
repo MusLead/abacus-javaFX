@@ -6,17 +6,20 @@ import java.util.Collection;
 import java.beans.PropertyChangeSupport;
 import java.util.Objects;
 
+@SuppressWarnings({"unused","UnusedReturnValue"})
 public class Player
 {
    public static final String PROPERTY_RIGHT_SUM = "rightSum";
    public static final String PROPERTY_WRONG_SUM = "wrongSum";
    public static final String PROPERTY_HISTORIES = "histories";
    public static final String PROPERTY_NAME = "name";
+   public static final String PROPERTY_RESULTS = "results";
    private int rightSum;
    private int wrongSum;
    private List<History> histories;
    protected PropertyChangeSupport listeners;
    private String name;
+   private List<Result> results;
 
    public int getRightSum()
    {
@@ -138,6 +141,72 @@ public class Player
       return this;
    }
 
+   public List<Result> getResults()
+   {
+      return this.results != null ? Collections.unmodifiableList(this.results) : Collections.emptyList();
+   }
+
+   public Player withResults(Result value)
+   {
+      if (this.results == null)
+      {
+         this.results = new ArrayList<>();
+      }
+      if (!this.results.contains(value))
+      {
+         this.results.add(value);
+         value.setPlayer(this);
+         this.firePropertyChange(PROPERTY_RESULTS, null, value);
+      }
+      return this;
+   }
+
+   public Player withResults(Result... value)
+   {
+      for (final Result item : value)
+      {
+         this.withResults(item);
+      }
+      return this;
+   }
+
+   public Player withResults(Collection<? extends Result> value)
+   {
+      for (final Result item : value)
+      {
+         this.withResults(item);
+      }
+      return this;
+   }
+
+   public Player withoutResults(Result value)
+   {
+      if (this.results != null && this.results.remove(value))
+      {
+         value.setPlayer(null);
+         this.firePropertyChange(PROPERTY_RESULTS, value, null);
+      }
+      return this;
+   }
+
+   public Player withoutResults(Result... value)
+   {
+      for (final Result item : value)
+      {
+         this.withoutResults(item);
+      }
+      return this;
+   }
+
+   public Player withoutResults(Collection<? extends Result> value)
+   {
+      for (final Result item : value)
+      {
+         this.withoutResults(item);
+      }
+      return this;
+   }
+
    public boolean firePropertyChange(String propertyName, Object oldValue, Object newValue)
    {
       if (this.listeners != null)
@@ -159,6 +228,7 @@ public class Player
 
    public void removeYou()
    {
+      this.withoutResults(new ArrayList<>(this.getResults()));
       this.withoutHistories(new ArrayList<>(this.getHistories()));
    }
 

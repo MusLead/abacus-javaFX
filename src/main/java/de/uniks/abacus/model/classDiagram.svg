@@ -1,55 +1,62 @@
-<svg width="260px" height="283px"
- viewBox="0.00 0.00 259.50 283.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1.0 1.0) rotate(0) translate(4 279)">
+<svg width="173px" height="405px"
+ viewBox="0.00 0.00 173.00 405.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.0 1.0) rotate(0) translate(4 401)">
 <title>de.uniks.abacus.model</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-279 255.5,-279 255.5,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-401 169,-401 169,4 -4,4"/>
 <!-- History -->
 <g id="node1" class="node">
 <title>History</title>
-<polygon fill="none" stroke="black" points="55.5,-76.5 55.5,-98.5 184.5,-98.5 184.5,-76.5 55.5,-76.5"/>
-<text text-anchor="start" x="99" y="-82.9" font-family="Times,serif" font-size="14.00">History</text>
-<polygon fill="none" stroke="black" points="55.5,-3.5 55.5,-76.5 184.5,-76.5 184.5,-3.5 55.5,-3.5"/>
-<text text-anchor="start" x="58.5" y="-60.9" font-family="Times,serif" font-size="14.00">rightResultTotal :int</text>
-<text text-anchor="start" x="58.5" y="-44.1" font-family="Times,serif" font-size="14.00">wrongResultTotal :int</text>
-<text text-anchor="start" x="58.5" y="-27.3" font-family="Times,serif" font-size="14.00">time :String</text>
-<text text-anchor="start" x="58.5" y="-10.5" font-family="Times,serif" font-size="14.00">finish :String</text>
+<polygon fill="none" stroke="black" points="28.5,-76.5 28.5,-98.5 157.5,-98.5 157.5,-76.5 28.5,-76.5"/>
+<text text-anchor="start" x="72" y="-82.9" font-family="Times,serif" font-size="14.00">History</text>
+<polygon fill="none" stroke="black" points="28.5,-3.5 28.5,-76.5 157.5,-76.5 157.5,-3.5 28.5,-3.5"/>
+<text text-anchor="start" x="31.5" y="-60.9" font-family="Times,serif" font-size="14.00">rightResultTotal :int</text>
+<text text-anchor="start" x="31.5" y="-44.1" font-family="Times,serif" font-size="14.00">wrongResultTotal :int</text>
+<text text-anchor="start" x="31.5" y="-27.3" font-family="Times,serif" font-size="14.00">time :String</text>
+<text text-anchor="start" x="31.5" y="-10.5" font-family="Times,serif" font-size="14.00">finish :String</text>
 </g>
 <!-- Player -->
 <g id="node2" class="node">
 <title>Player</title>
-<polygon fill="none" stroke="black" points="8.5,-224 8.5,-246 97.5,-246 97.5,-224 8.5,-224"/>
-<text text-anchor="start" x="35.12" y="-230.4" font-family="Times,serif" font-size="14.00">Player</text>
-<polygon fill="none" stroke="black" points="8.5,-168 8.5,-224 97.5,-224 97.5,-168 8.5,-168"/>
-<text text-anchor="start" x="11.5" y="-208.4" font-family="Times,serif" font-size="14.00">rightSum :int</text>
-<text text-anchor="start" x="11.5" y="-191.6" font-family="Times,serif" font-size="14.00">wrongSum :int</text>
-<text text-anchor="start" x="11.5" y="-174.8" font-family="Times,serif" font-size="14.00">name :String</text>
+<polygon fill="none" stroke="black" points="8.5,-199 8.5,-221 97.5,-221 97.5,-199 8.5,-199"/>
+<text text-anchor="start" x="35.12" y="-205.4" font-family="Times,serif" font-size="14.00">Player</text>
+<polygon fill="none" stroke="black" points="8.5,-143 8.5,-199 97.5,-199 97.5,-143 8.5,-143"/>
+<text text-anchor="start" x="11.5" y="-183.4" font-family="Times,serif" font-size="14.00">rightSum :int</text>
+<text text-anchor="start" x="11.5" y="-166.6" font-family="Times,serif" font-size="14.00">wrongSum :int</text>
+<text text-anchor="start" x="11.5" y="-149.8" font-family="Times,serif" font-size="14.00">name :String</text>
 </g>
 <!-- History&#45;&gt;Player -->
 <g id="edge1" class="edge">
 <title>History&#45;&gt;Player</title>
-<path fill="none" stroke="black" d="M97.38,-103.19C88.84,-122.75 79.18,-144.87 71.02,-163.57"/>
-<text text-anchor="middle" x="53.53" y="-150.97" font-family="Times,serif" font-size="14.00">player</text>
-<text text-anchor="middle" x="68.41" y="-107.39" font-family="Times,serif" font-size="14.00">histories *</text>
+<path fill="none" stroke="black" d="M76.69,-103.29C73.02,-115.07 69.16,-127.49 65.62,-138.86"/>
+<text text-anchor="middle" x="48.13" y="-126.26" font-family="Times,serif" font-size="14.00">player</text>
+<text text-anchor="middle" x="47.72" y="-107.49" font-family="Times,serif" font-size="14.00">histories *</text>
 </g>
 <!-- Result -->
 <g id="node3" class="node">
 <title>Result</title>
-<polygon fill="none" stroke="black" points="131.5,-249 131.5,-271 243.5,-271 243.5,-249 131.5,-249"/>
-<text text-anchor="start" x="169.61" y="-255.4" font-family="Times,serif" font-size="14.00">Result</text>
-<polygon fill="none" stroke="black" points="131.5,-143 131.5,-249 243.5,-249 243.5,-143 131.5,-143"/>
-<text text-anchor="start" x="134.5" y="-233.4" font-family="Times,serif" font-size="14.00">resultStatus :String</text>
-<text text-anchor="start" x="134.5" y="-216.6" font-family="Times,serif" font-size="14.00">operation :char</text>
-<text text-anchor="start" x="134.5" y="-199.8" font-family="Times,serif" font-size="14.00">firstVal :int</text>
-<text text-anchor="start" x="134.5" y="-183" font-family="Times,serif" font-size="14.00">secondVal :int</text>
-<text text-anchor="start" x="134.5" y="-166.2" font-family="Times,serif" font-size="14.00">resultVal :int</text>
-<text text-anchor="start" x="134.5" y="-149.4" font-family="Times,serif" font-size="14.00">rightVal :int</text>
+<polygon fill="none" stroke="black" points="36.5,-371 36.5,-393 148.5,-393 148.5,-371 36.5,-371"/>
+<text text-anchor="start" x="74.61" y="-377.4" font-family="Times,serif" font-size="14.00">Result</text>
+<polygon fill="none" stroke="black" points="36.5,-265 36.5,-371 148.5,-371 148.5,-265 36.5,-265"/>
+<text text-anchor="start" x="39.5" y="-355.4" font-family="Times,serif" font-size="14.00">resultStatus :String</text>
+<text text-anchor="start" x="39.5" y="-338.6" font-family="Times,serif" font-size="14.00">operation :char</text>
+<text text-anchor="start" x="39.5" y="-321.8" font-family="Times,serif" font-size="14.00">firstVal :int</text>
+<text text-anchor="start" x="39.5" y="-305" font-family="Times,serif" font-size="14.00">secondVal :int</text>
+<text text-anchor="start" x="39.5" y="-288.2" font-family="Times,serif" font-size="14.00">resultVal :int</text>
+<text text-anchor="start" x="39.5" y="-271.4" font-family="Times,serif" font-size="14.00">rightVal :int</text>
 </g>
 <!-- History&#45;&gt;Result -->
 <g id="edge2" class="edge">
 <title>History&#45;&gt;Result</title>
-<path fill="none" stroke="black" d="M141.95,-103.19C147.02,-114.63 152.48,-126.94 157.79,-138.94"/>
-<text text-anchor="middle" x="134.27" y="-126.34" font-family="Times,serif" font-size="14.00">results *</text>
-<text text-anchor="middle" x="122.51" y="-107.39" font-family="Times,serif" font-size="14.00">history</text>
+<path fill="none" stroke="black" d="M107.66,-103.32C110.5,-114.94 113.04,-127.31 114.5,-139 119.25,-176.93 118.51,-186.99 114.5,-225 113.27,-236.64 111.28,-248.89 108.99,-260.73"/>
+<text text-anchor="middle" x="85.47" y="-248.13" font-family="Times,serif" font-size="14.00">results *</text>
+<text text-anchor="middle" x="127.11" y="-107.52" font-family="Times,serif" font-size="14.00">history</text>
+</g>
+<!-- Player&#45;&gt;Result -->
+<g id="edge3" class="edge">
+<title>Player&#45;&gt;Result</title>
+<path fill="none" stroke="black" d="M64.18,-225.33C67.24,-236.45 70.63,-248.72 73.96,-260.79"/>
+<text text-anchor="middle" x="50.44" y="-248.19" font-family="Times,serif" font-size="14.00">results *</text>
+<text text-anchor="middle" x="46.69" y="-229.53" font-family="Times,serif" font-size="14.00">player</text>
 </g>
 </g>
 </svg>

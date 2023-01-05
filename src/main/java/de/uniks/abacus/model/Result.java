@@ -1,11 +1,8 @@
 package de.uniks.abacus.model;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
-import java.util.Collections;
-import java.util.Collection;
 import java.beans.PropertyChangeSupport;
 
+@SuppressWarnings({"unused","UnusedReturnValue"})
 public class Result
 {
    public static final String PROPERTY_RESULT_STATUS = "resultStatus";
@@ -15,6 +12,7 @@ public class Result
    public static final String PROPERTY_RESULT_VAL = "resultVal";
    public static final String PROPERTY_RIGHT_VAL = "rightVal";
    public static final String PROPERTY_HISTORY = "history";
+   public static final String PROPERTY_PLAYER = "player";
    private String resultStatus;
    private char operation;
    private int firstVal;
@@ -23,6 +21,7 @@ public class Result
    private int rightVal;
    protected PropertyChangeSupport listeners;
    private History history;
+   private Player player;
 
    public String getResultStatus()
    {
@@ -159,6 +158,33 @@ public class Result
       return this;
    }
 
+   public Player getPlayer()
+   {
+      return this.player;
+   }
+
+   public Result setPlayer(Player value)
+   {
+      if (this.player == value)
+      {
+         return this;
+      }
+
+      final Player oldValue = this.player;
+      if (this.player != null)
+      {
+         this.player = null;
+         oldValue.withoutResults(this);
+      }
+      this.player = value;
+      if (value != null)
+      {
+         value.withResults(this);
+      }
+      this.firePropertyChange(PROPERTY_PLAYER, oldValue, value);
+      return this;
+   }
+
    public boolean firePropertyChange(String propertyName, Object oldValue, Object newValue)
    {
       if (this.listeners != null)
@@ -189,5 +215,6 @@ public class Result
    public void removeYou()
    {
       this.setHistory(null);
+      this.setPlayer(null);
    }
 }
