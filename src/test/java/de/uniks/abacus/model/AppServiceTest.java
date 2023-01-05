@@ -1,7 +1,5 @@
 package de.uniks.abacus.model;
 
-
-import de.uniks.abacus.Constant;
 import org.junit.jupiter.api.Test;
 
 import static de.uniks.abacus.Constant.*;

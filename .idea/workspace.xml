@@ -233,7 +233,7 @@
       <option name="presentableId" value="Default" />
       <updated>1672878552184</updated>
       <workItem from="1672878553190" duration="2495000" />
-      <workItem from="1672908862658" duration="20228000" />
+      <workItem from="1672908862658" duration="21329000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1672879844809</created>
@@ -312,7 +312,21 @@
       <option name="project" value="LOCAL" />
       <updated>1672915639230</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="feat: create constant">
+      <created>1672938104549</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1672938104549</updated>
+    </task>
+    <task id="LOCAL-00013" summary="refactor: add association between player and result">
+      <created>1672938253612</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1672938253612</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,14 +334,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: add some services" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add some services" />
+    <MESSAGE value="feat: create constant" />
+    <MESSAGE value="refactor: add association between player and result" />
+    <MESSAGE value="refactor: add and revise AooService" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: add and revise AooService" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/model/AppService.java</url>
-          <line>118</line>
+          <line>116</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

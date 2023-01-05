@@ -1,7 +1,5 @@
 package de.uniks.abacus.model;
 
-import de.uniks.abacus.Constant;
-
 import java.util.Random;
 
 import static de.uniks.abacus.Constant.*;
@@ -32,15 +30,13 @@ public class AppService {
      * either wrong or correct.
      * the player and the history should increase their
      * sum and total of (wrong or correct).
-     *
      * This method should only be used if the
      * right result has been calculated and the result has
      * a player and a history
      *
      * @param result object that fulfill the condition
-     * @return the right result as true
      */
-    private boolean checkResult(Result result) {
+    private void checkResult(Result result) {
         if(result.getPlayer() == null || result.getHistory() == null || result.getRightVal() == 0){
             throw new IllegalArgumentException("The program is incomplete!");
         }
@@ -56,7 +52,6 @@ public class AppService {
             currentHistory.setWrongResultTotal(currentHistory.getWrongResultTotal() + 1);
             result.setResultStatus(WRONG);
         }
-        return isCorrect;
     }
 
     /**
@@ -94,7 +89,6 @@ public class AppService {
      * This function only be used after the user gives an Answer
      * We want to know everytime the new results is being created, the results should be able
      * to access either from player or from the history.
-     *
      * The origin and bound are for the checkDivision, to find another alternative number
      * if the right result is not within the set of Natural Number
      * @param player current player
