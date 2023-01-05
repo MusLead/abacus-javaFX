@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    // https://plugins.gradle.org/plugin/org.fulib.fulibGradle
+    id 'org.fulib.fulibGradle' version '0.5.0'
 }
 
 group 'de.uniks.abacus'
@@ -12,6 +14,16 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+    // https://mvnrepository.com/artifact/org.fulib/fulibScenarios
+    fulibScenarios group: 'org.fulib', name: 'fulibScenarios', version: '1.7.0'
+
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
+    fulibScenarios group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.36'
+
+    // optional, to override the version of fulib used by fulibScenarios:
+    // https://mvnrepository.com/artifact/org.fulib/fulib
+    fulibScenarios group: 'org.fulib', name: 'fulib', version: '1.6.1'
 }
 
 test {

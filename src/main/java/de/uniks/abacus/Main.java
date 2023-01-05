@@ -1,5 +1,7 @@
-package de.uniks.abacus;public class Main {
-    public static void main(String[] args) {
+package de.uniks.abacus;
+
+public class Main {
+    public static void main( String[] args ) {
         System.out.println("Hello world!");
     }
 }
