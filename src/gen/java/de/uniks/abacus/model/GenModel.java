@@ -5,7 +5,6 @@ import org.fulib.builder.ClassModelDecorator;
 import org.fulib.builder.ClassModelManager;
 import org.fulib.builder.reflect.Link;
 
-import java.awt.*;
 import java.util.List;
 @SuppressWarnings("unused")
 public class GenModel implements ClassModelDecorator{
@@ -36,7 +35,7 @@ public class GenModel implements ClassModelDecorator{
         int resultVal;
         int rightVal;
         @Link("results")
-        List<History> history;
+        History history;
     }
 
     @Override

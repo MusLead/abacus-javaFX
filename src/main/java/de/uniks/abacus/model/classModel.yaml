@@ -94,15 +94,13 @@
 
 - result_history: 	org.fulib.classmodel.AssocRole
   aggregation: 	false
-  cardinality: 	42
+  cardinality: 	1
   clazz: 	result
-  collectionType: 	c1
   id: 	Result_history
   modified: 	false
   name: 	history
   other: 	history_results
   propertyStyle: 	Bean
-  roleType: 	"java.util.ArrayList<%s>"
 
 - history_rightResultTotal: 	org.fulib.classmodel.Attribute
   clazz: 	history

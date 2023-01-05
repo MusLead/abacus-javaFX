@@ -21,8 +21,8 @@ public class Result
    private int secondVal;
    private int resultVal;
    private int rightVal;
-   private List<History> history;
    protected PropertyChangeSupport listeners;
+   private History history;
 
    public String getResultStatus()
    {
@@ -132,69 +132,30 @@ public class Result
       return this;
    }
 
-   public List<History> getHistory()
+   public History getHistory()
    {
-      return this.history != null ? Collections.unmodifiableList(this.history) : Collections.emptyList();
+      return this.history;
    }
 
-   public Result withHistory(History value)
+   public Result setHistory(History value)
    {
-      if (this.history == null)
+      if (this.history == value)
       {
-         this.history = new ArrayList<>();
+         return this;
       }
-      if (!this.history.contains(value))
+
+      final History oldValue = this.history;
+      if (this.history != null)
       {
-         this.history.add(value);
+         this.history = null;
+         oldValue.withoutResults(this);
+      }
+      this.history = value;
+      if (value != null)
+      {
          value.withResults(this);
-         this.firePropertyChange(PROPERTY_HISTORY, null, value);
       }
-      return this;
-   }
-
-   public Result withHistory(History... value)
-   {
-      for (final History item : value)
-      {
-         this.withHistory(item);
-      }
-      return this;
-   }
-
-   public Result withHistory(Collection<? extends History> value)
-   {
-      for (final History item : value)
-      {
-         this.withHistory(item);
-      }
-      return this;
-   }
-
-   public Result withoutHistory(History value)
-   {
-      if (this.history != null && this.history.remove(value))
-      {
-         value.withoutResults(this);
-         this.firePropertyChange(PROPERTY_HISTORY, value, null);
-      }
-      return this;
-   }
-
-   public Result withoutHistory(History... value)
-   {
-      for (final History item : value)
-      {
-         this.withoutHistory(item);
-      }
-      return this;
-   }
-
-   public Result withoutHistory(Collection<? extends History> value)
-   {
-      for (final History item : value)
-      {
-         this.withoutHistory(item);
-      }
+      this.firePropertyChange(PROPERTY_HISTORY, oldValue, value);
       return this;
    }
 
@@ -227,6 +188,6 @@ public class Result
 
    public void removeYou()
    {
-      this.withoutHistory(new ArrayList<>(this.getHistory()));
+      this.setHistory(null);
    }
 }

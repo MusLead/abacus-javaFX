@@ -12,15 +12,15 @@ public class History
    public static final String PROPERTY_WRONG_RESULT_TOTAL = "wrongResultTotal";
    public static final String PROPERTY_TIME = "time";
    public static final String PROPERTY_FINISH = "finish";
-   public static final String PROPERTY_RESULTS = "results";
    public static final String PROPERTY_PLAYER = "player";
+   public static final String PROPERTY_RESULTS = "results";
    private int rightResultTotal;
    private int wrongResultTotal;
    private String time;
    private String finish;
-   private List<Result> results;
    private Player player;
    protected PropertyChangeSupport listeners;
+   private List<Result> results;
 
    public int getRightResultTotal()
    {
@@ -94,6 +94,33 @@ public class History
       return this;
    }
 
+   public Player getPlayer()
+   {
+      return this.player;
+   }
+
+   public History setPlayer(Player value)
+   {
+      if (this.player == value)
+      {
+         return this;
+      }
+
+      final Player oldValue = this.player;
+      if (this.player != null)
+      {
+         this.player = null;
+         oldValue.withoutHistories(this);
+      }
+      this.player = value;
+      if (value != null)
+      {
+         value.withHistories(this);
+      }
+      this.firePropertyChange(PROPERTY_PLAYER, oldValue, value);
+      return this;
+   }
+
    public List<Result> getResults()
    {
       return this.results != null ? Collections.unmodifiableList(this.results) : Collections.emptyList();
@@ -108,7 +135,7 @@ public class History
       if (!this.results.contains(value))
       {
          this.results.add(value);
-         value.withHistory(this);
+         value.setHistory(this);
          this.firePropertyChange(PROPERTY_RESULTS, null, value);
       }
       return this;
@@ -136,7 +163,7 @@ public class History
    {
       if (this.results != null && this.results.remove(value))
       {
-         value.withoutHistory(this);
+         value.setHistory(null);
          this.firePropertyChange(PROPERTY_RESULTS, value, null);
       }
       return this;
@@ -157,33 +184,6 @@ public class History
       {
          this.withoutResults(item);
       }
-      return this;
-   }
-
-   public Player getPlayer()
-   {
-      return this.player;
-   }
-
-   public History setPlayer(Player value)
-   {
-      if (this.player == value)
-      {
-         return this;
-      }
-
-      final Player oldValue = this.player;
-      if (this.player != null)
-      {
-         this.player = null;
-         oldValue.withoutHistories(this);
-      }
-      this.player = value;
-      if (value != null)
-      {
-         value.withHistories(this);
-      }
-      this.firePropertyChange(PROPERTY_PLAYER, oldValue, value);
       return this;
    }
 
