@@ -12,7 +12,6 @@ public class AppServiceTest {
         /*
         * Calculate gives a value of the computer calculation
         * */
-        Player player = new Player();
         int firstVal = 2, secondVal = 3;
 
         char operation = '*';
