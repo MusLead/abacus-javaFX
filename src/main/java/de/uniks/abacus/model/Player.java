@@ -4,16 +4,19 @@ import java.util.List;
 import java.util.Collections;
 import java.util.Collection;
 import java.beans.PropertyChangeSupport;
+import java.util.Objects;
 
 public class Player
 {
    public static final String PROPERTY_RIGHT_SUM = "rightSum";
    public static final String PROPERTY_WRONG_SUM = "wrongSum";
    public static final String PROPERTY_HISTORIES = "histories";
+   public static final String PROPERTY_NAME = "name";
    private int rightSum;
    private int wrongSum;
    private List<History> histories;
    protected PropertyChangeSupport listeners;
+   private String name;
 
    public int getRightSum()
    {
@@ -117,6 +120,24 @@ public class Player
       return this;
    }
 
+   public String getName()
+   {
+      return this.name;
+   }
+
+   public Player setName(String value)
+   {
+      if (Objects.equals(value, this.name))
+      {
+         return this;
+      }
+
+      final String oldValue = this.name;
+      this.name = value;
+      this.firePropertyChange(PROPERTY_NAME, oldValue, value);
+      return this;
+   }
+
    public boolean firePropertyChange(String propertyName, Object oldValue, Object newValue)
    {
       if (this.listeners != null)
@@ -139,5 +160,13 @@ public class Player
    public void removeYou()
    {
       this.withoutHistories(new ArrayList<>(this.getHistories()));
+   }
+
+   @Override
+   public String toString()
+   {
+      final StringBuilder result = new StringBuilder();
+      result.append(' ').append(this.getName());
+      return result.substring(1);
    }
 }

@@ -182,7 +182,7 @@
       <option name="presentableId" value="Default" />
       <updated>1672878552184</updated>
       <workItem from="1672878553190" duration="2495000" />
-      <workItem from="1672908862658" duration="1894000" />
+      <workItem from="1672908862658" duration="5153000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1672879844809</created>
@@ -212,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672910433412</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fix: test">
+      <created>1672911259188</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1672911259188</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,6 +231,7 @@
     <MESSAGE value="feat: generate classDiagramSVG" />
     <MESSAGE value="refactor: generate classDiagramSVG" />
     <MESSAGE value="fix: adjust with the GenModel and new gradle.build" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: adjust with the GenModel and new gradle.build" />
+    <MESSAGE value="fix: test" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: test" />
   </component>
 </project>

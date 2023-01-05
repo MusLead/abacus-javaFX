@@ -24,7 +24,7 @@
   roles: 	history_results 	history_player
 
 - player: 	org.fulib.classmodel.Clazz
-  attributes: 	player_rightSum 	player_wrongSum
+  attributes: 	player_rightSum 	player_wrongSum 	player_name
   model: 	c
   modified: 	false
   name: 	Player
@@ -177,6 +177,15 @@
   propertyStyle: 	Bean
   type: 	int
   typeSignature: 	int
+
+- player_name: 	org.fulib.classmodel.Attribute
+  clazz: 	player
+  id: 	Player_name
+  modified: 	false
+  name: 	name
+  propertyStyle: 	Bean
+  type: 	String
+  typeSignature: 	String
 
 - player_histories: 	org.fulib.classmodel.AssocRole
   aggregation: 	false

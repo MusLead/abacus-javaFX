@@ -8,10 +8,11 @@ import org.fulib.builder.reflect.Link;
 import java.util.List;
 @SuppressWarnings("unused")
 public class GenModel implements ClassModelDecorator{
-    //FIXME i still cannot see the class model!!! how to automatically generate it???
+
     class Player {
         int rightSum;
         int wrongSum;
+        String name;
         @Link("player")
         List<History> histories;
     }
