@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER" prefHeight="194.0" prefWidth="600.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="194.0" prefWidth="205.0">
+               <children>
+                  <Button fx:id="mainMenuButton" mnemonicParsing="false" text="Back to Main Menu" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Text fx:id="nameText" strokeType="OUTSIDE" strokeWidth="0.0" text="Player" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total Achievements" />
+                  <HBox alignment="CENTER" prefHeight="63.0" prefWidth="100.0" spacing="15.0">
+                     <children>
+                        <Text fx:id="correctText" strokeType="OUTSIDE" strokeWidth="0.0" text="Correct :0" />
+                        <Text fx:id="wrongText" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong: 0" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="194.0" prefWidth="213.0" spacing="40.0">
+               <children>
+                  <Button fx:id="ContinuePlayButton" mnemonicParsing="false" text="Continue" />
+                  <Button fx:id="deletePlayerButton" mnemonicParsing="false" text="Delete Player" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Accordion fx:id="historyAccordion">
+              <panes>
+                <TitledPane animated="false" text="23.01.2022 13:00">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" 3 + 3 = 2 | wrong answer!" />
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" 3 + 3 = 2 | wrong answer!" />
+                           </children>
+                        </VBox>
+                     </content>
+                </TitledPane>
+                  <TitledPane animated="false" layoutX="10.0" layoutY="10.0" text="23.01.2022 13:00">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" 3 + 3 = 2 | wrong answer!" />
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" 3 + 3 = 2 | wrong answer!" />
+                           </children>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+              </panes>
+            </Accordion>
+         </children>
+      </VBox>
+   </children>
+</VBox>
