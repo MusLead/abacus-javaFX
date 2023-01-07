@@ -75,7 +75,7 @@ public class CalculationController implements Controller {
 
     private void toResultScene( TextField answerField ) {
         AppService appService = new AppService();
-        int userInput = 0;
+        int userInput;
         try {
             userInput = Integer.parseInt(answerField.getText());
             Result result = appService.creatNewResult(player, firstValue, operation,

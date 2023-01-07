@@ -138,7 +138,7 @@ public class App extends Application {
     }
 
     public void setLimitOriginBound( TextField originField, TextField boundField ) {
-        https://stackoverflow.com/questions/22714268/how-to-limit-the-amount-of-characters-a-javafx-textfield
+        //https://stackoverflow.com/questions/22714268/how-to-limit-the-amount-of-characters-a-javafx-textfield
         originField.lengthProperty().addListener(( observable, oldValue, newValue ) -> {
             if (newValue.intValue() > oldValue.intValue()) {
                 // Check if the new character is greater than LIMIT

@@ -159,7 +159,6 @@ public class AppService {
 
     public static String currentTime() {
         Date date = new Date();
-        String currDate = new SimpleDateFormat("MM/dd/yyyy (HH:mm - ").format(date);
-        return currDate;
+        return new SimpleDateFormat("MM/dd/yyyy (HH:mm - ").format(date);
     }
 }

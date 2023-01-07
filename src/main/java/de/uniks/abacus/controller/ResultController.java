@@ -126,8 +126,7 @@ public class ResultController implements Controller{
 
     public static String currentTimeFinish() {
         Date date = new Date();
-        String currDate = new SimpleDateFormat(" HH:mm)").format(date);
-        return currDate;
+        return new SimpleDateFormat(" HH:mm)").format(date);
     }
 
     private void getSettingsNode( Accordion accordion, List<Node> resultsSettings, Parent parent ) {

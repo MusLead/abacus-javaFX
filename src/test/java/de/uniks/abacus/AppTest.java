@@ -11,7 +11,7 @@ public class AppTest extends ApplicationTest {
     private Stage stage;
     //TODO before programming create a Database system, please
     //TODO test the circulation behavior of the program, whether all buttons
-    // TODO are functional!
+    //TODO are functional!
 
     @Override
     public void start(Stage stage) {
