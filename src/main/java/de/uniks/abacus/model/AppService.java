@@ -1,5 +1,7 @@
 package de.uniks.abacus.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 import static de.uniks.abacus.Constant.*;
@@ -37,9 +39,13 @@ public class AppService {
      * @param result object that fulfill the condition
      */
     private void checkResult(Result result) {
-        if(result.getPlayer() == null || result.getHistory() == null || result.getRightVal() == 0){
+
+        if(result.getPlayer() == null || result.getHistory() == null){
             throw new IllegalArgumentException("The program is incomplete!");
+        } else if (result.getRightVal() == 0){
+            throw new IllegalArgumentException("The value is 0 or less than 0, checkDivision usage!");
         }
+
         boolean isCorrect = result.getRightVal() == result.getResultVal();
         Player currentPlayer = result.getPlayer();
         History currentHistory = result.getHistory();
@@ -56,34 +62,55 @@ public class AppService {
 
     /**
      * This method find a new task if the current Task has the result of not natural numbers
-     * @param player to get the value of current player
-     * @param origin the lowest value for the random
-     * @param upperBound the highest value for the random
+     * REMEMBER! this return value does not return the value back to the player
+     *
+     * @param origin      the lowest value for the random
+     * @param upperBound  the highest value for the random
+     * @param firstValue  value of the first value
+     * @param secondValue value of the second value
+     * @return value of TEMPORARY RETURN!
      */
-    protected void checkDivision(Player player, int origin, int upperBound) {
-        int historyIndex = player.getHistories().size() - 1;
-        int resultIndex = player.getHistories().get(historyIndex).getResults().size() - 1;
-        Result currentResult = player.getHistories().get(historyIndex).getResults().get(resultIndex);
-        float firstVal =  currentResult.getFirstVal();
-        float secondVal = currentResult.getSecondVal();
-        int intVal = (int) (firstVal/secondVal);
-        /*
-        * example:
-        * fistVal = 3 secondVal = 2;
-        * intVal = 1
-        * firstval/secondVal = 1.5
-        * because 1 != 1.5 find another number until they have the same value!
-        * */
-        while ((firstVal/secondVal) != intVal) {
-            firstVal = random.nextInt(origin,upperBound);
-            secondVal = random.nextInt(origin, (int) firstVal);
-            intVal = (int) (firstVal/secondVal);
-        }
+    public Result checkDivisionNew(int origin, int upperBound, int firstValue, int secondValue) {
 
-        // after quit from the loop, set all the new value to the player!
-        currentResult.setFirstVal((int) firstVal)
-                .setSecondVal((int) secondVal);
+        int firstValNow = 0, secondValNow = 0;
+        //https://stackoverflow.com/questions/65678297/solve-integer-division-in-floating-point-context
+        double resultDouble = (double) firstValue/secondValue;
+        int count = 0;
+        while (getDecimalPlaces(resultDouble) != 0) {
+            /*
+             * we want to find a value for the first and the second that
+             * first always bigger than the second.
+             * we can see that from the secondVal origin,  we only accept
+             * value that always less big than the first.
+             * */
+            firstValNow = random.nextInt(origin + 1,upperBound);
+            assert firstValNow > origin : "firstVal: " + firstValNow + "secondVal: " + secondValNow + " Origin:" + origin;
+            secondValNow = random.nextInt(origin, firstValNow);
+            resultDouble = (double) firstValNow/secondValNow;
+            count++;
+        }
+        if(count != 0) System.out.println("total loop new value round: " + count);
+
+
+        // after quit from the loop, return two values!
+        return new Result().setResultStatus(TEMP_STATUS)
+                .setFirstVal(firstValNow)
+                .setSecondVal(secondValNow);
+
     }
+
+    private static int getDecimalPlaces( double resultDouble ) {
+        //https://stackoverflow.com/questions/6264576/number-of-decimal-digits-in-a-double
+        String text = Double.toString(Math.abs(resultDouble));
+        int integerPlaces = text.indexOf('.');
+        int decimalPlaces = text.length() - integerPlaces - 1;
+        if(decimalPlaces == 1) {
+            resultDouble *= 10;
+            decimalPlaces = (resultDouble % 10) == 0 ? 0 : 1;
+        }
+        return decimalPlaces;
+    }
+
 
     /**
      * This function only be used after the user gives an Answer
@@ -91,18 +118,14 @@ public class AppService {
      * to access either from player or from the history.
      * The origin and bound are for the checkDivision, to find another alternative number
      * if the right result is not within the set of Natural Number
-     * @param player current player
-     * @param firstVal first value
+     *
+     * @param player    current player
+     * @param firstVal  first value
      * @param operation operation
      * @param secondVal second value
-     * @param origin for the random in checkDivision
-     * @param bound for the random in checkDivision
      * @return current result
      */
-    public Result creatNewResult(Player player, int firstVal, char operation, int secondVal, int userInput
-            , int origin, int bound) {
-        if(operation == '/') // check for other possibility! look at the method description!
-            checkDivision(player, origin, bound);
+    public Result creatNewResult(Player player, int firstVal, char operation, int secondVal, int userInput) {
 
         Result result = new Result()
                 .setPlayer(player)
@@ -116,15 +139,27 @@ public class AppService {
         if(currentHistorySize != 0) {
             //take the last history that is being created and put the result in
             History currentHistory = player.getHistories().get(currentHistorySize - 1);
-            currentHistory.withResults(result);
+            currentHistory.withResults(result).setTime(currentTime());
         } else {
-            History currentHistory = new History().withResults(result);
+            History currentHistory = new History().withResults(result).setTime(currentTime());
             player.withHistories(currentHistory);
         }
 
-        // check the result that has a Player and also a History
-        checkResult(result);
+        // check the result, that has a Player and also a History, whether  correct or wrong
+        try {
+            checkResult(result);
+        } catch (IllegalArgumentException exception) {
+            System.err.println(exception.getMessage());
+        }
+
+
 
         return result;
+    }
+
+    public static String currentTime() {
+        Date date = new Date();
+        String currDate = new SimpleDateFormat("MM/dd/yyyy (HH:mm - ").format(date);
+        return currDate;
     }
 }

@@ -1,10 +1,12 @@
 package de.uniks.abacus.controller;
 
 import de.uniks.abacus.App;
+import de.uniks.abacus.model.Player;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 import java.io.IOException;
@@ -12,6 +14,8 @@ import java.util.Objects;
 
 public class HomepageController implements Controller {
     private final App app;
+
+    private TextField userName;
 
     public HomepageController( App app ) {
         this.app = app;
@@ -32,14 +36,19 @@ public class HomepageController implements Controller {
         // Load FXML
         final Parent parent = FXMLLoader.load(
                 Objects.requireNonNull(Controller.class.getResource("/de/uniks/abacus/views/Homepage.fxml")));
-        // Lookup Start button
-        TextField userName = (TextField) parent.lookup("#nameInput");
+        // Lookup
+        userName = (TextField) parent.lookup("#nameInput");
         final Button startButton = (Button) parent.lookup("#startButton");
         // Set Start button onAction
-        startButton.setOnAction(event -> {
-            app.show(new OverviewController(this.app));
-        });
+        startButton.setOnAction(event -> toControlPanel(userName));
         return parent;
+    }
+
+    private void toControlPanel( TextField userName ) {
+        Player player = new Player()
+                .setName(userName.getText())
+                .withHistories();
+        app.show(new OptionController(this.app,player));
     }
 
     @Override
@@ -49,6 +58,8 @@ public class HomepageController implements Controller {
 
     @Override
     public void keyboardListener( KeyEvent e ) {
-
+        if(e.getCode() == KeyCode.ENTER){
+            toControlPanel(userName);
+        }
     }
 }

@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="100.0">
@@ -26,8 +25,10 @@
          <children>
             <MenuButton fx:id="optMenuButton" mnemonicParsing="false" text="opt">
               <items>
-                <MenuItem mnemonicParsing="false" text="+" />
-                <MenuItem mnemonicParsing="false" text="-" />
+                <MenuItem fx:id="plusMenuItem" mnemonicParsing="false" text="+" />
+                <MenuItem fx:id="minusMenuItem" mnemonicParsing="false" text="-" />
+                  <MenuItem fx:id="multiplicationMenuItem" mnemonicParsing="false" text="*" />
+                  <MenuItem fx:id="divisionMenuItem" mnemonicParsing="false" text="/" />
               </items>
             </MenuButton>
             <TextField fx:id="originField" />
