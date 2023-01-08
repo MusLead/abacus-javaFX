@@ -82,7 +82,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/aslam/Documents/GitHub/sempoa-javaFX/src/gen/java",
+    "last_opened_file_path": "/Users/aslam/Documents/GitHub/sempoa-javaFX/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -90,7 +90,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "inlay.hints",
+    "settings.editor.selected.configurable": "preferences.pathVariables",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -107,9 +107,11 @@
       <recent name="de.uniks.abacus.controller" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/gen/java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main" />
       <recent name="$PROJECT_DIR$/src/main/resources/de/uniks/abacus/views" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources/de.uniks.abacus.view" />
@@ -119,6 +121,7 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="de.uniks.abacus.Main" />
       <module name="sempoa-javaFX.main" />
+      <option name="PROGRAM_PARAMETERS" value="--module-path ${PATH_TO_FX} --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="de.uniks.abacus.app.*" />
@@ -217,6 +220,13 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.AppServiceTest" />
+      <item itemvalue="Gradle.AppServiceTest.checkDivisionTest" />
+      <item itemvalue="Gradle.sempoa-javaFX [build]" />
+      <item itemvalue="Gradle.sempoa-javaFX [buildDependents]" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.sempoa-javaFX [build]" />
@@ -237,7 +247,8 @@
       <updated>1672878552184</updated>
       <workItem from="1672878553190" duration="2495000" />
       <workItem from="1672908862658" duration="72194000" />
-      <workItem from="1673197260654" duration="4926000" />
+      <workItem from="1673197260654" duration="6680000" />
+      <workItem from="1673204322269" duration="7320000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1672879844809</created>
@@ -386,7 +397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673116131840</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="refactor: scrollbar and make the function smoother">
+      <created>1673202784865</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1673202784865</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,34 +440,24 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/OptionController.java</url>
-          <line>82</line>
+          <line>78</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <condition expression="result == null" language="JAVA" />
           <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/CalculationController.java</url>
-          <line>88</line>
+          <line>86</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/App.java</url>
-          <line>49</line>
+          <line>47</line>
           <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/model/AppService.java</url>
-          <line>173</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/model/AppService.java</url>
-          <line>174</line>
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/model/AppService.java</url>
-          <line>175</line>
-          <option name="timeStamp" value="61" />
+          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/HomepageController.java</url>
+          <line>95</line>
+          <option name="timeStamp" value="63" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,6 +1,7 @@
 package de.uniks.abacus.controller;
 
 import de.uniks.abacus.App;
+import de.uniks.abacus.model.AppService;
 import de.uniks.abacus.model.Player;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -22,6 +23,7 @@ import java.util.List;
 import java.util.Objects;
 
 import static de.uniks.abacus.Constant.*;
+import static de.uniks.abacus.model.AppService.checkName;
 
 public class HomepageController implements Controller {
     private final App app;
@@ -51,6 +53,8 @@ public class HomepageController implements Controller {
                 Objects.requireNonNull(Controller.class.getResource("/de/uniks/abacus/views/Homepage.fxml")));
         // Lookup
         userName = (TextField) parent.lookup("#nameInput");
+        final HBox mainScene = (HBox) parent.lookup("#mainScene");
+
         /* https://stackoverflow.com/questions/30971407/javafx-is-it-possible-to-have-a-scroll-bar-in-vbox
         * try putting VBox inside a scrollPane. With this approach,
         * you don't have to worry about setting the prefHeight
@@ -66,21 +70,27 @@ public class HomepageController implements Controller {
         // Set Start button onAction
         startButton.setOnAction(event -> toControlPanel(userName));
 
+        if(app.getCoreData().getPlayers().size() == 0 && !IS_DEBUG){
+            mainScene.getChildren().remove(homepageScrollPane);
+        }
+
         int id = 0;
         for (Player player: app.getCoreData().getPlayers()) {
-            addPlayerSlot(parent, playerBar, id, player);
+            addPlayerSlot(parent, playerBar, id, player, homepageScrollPane,mainScene);
             id++;
         }
 
-        creatExamplePlayersBar(playerBar,parent);
+        creatExamplePlayersBar(playerBar, parent, homepageScrollPane, mainScene);
 
         return parent;
     }
 
-    private void addPlayerSlot( Parent parent, VBox playerBar, int id, Player player ) throws IOException {
+    private void addPlayerSlot( Parent parent, VBox playerBar, int id,
+                                Player player, ScrollPane homepageScrollPane, HBox mainScene
+    ) throws IOException {
         PropertyChangeListener playerListener = e -> {
             /*
-             * In case we are in the Homepage and we want to delete
+             * In case we are in the Homepage, and we want to delete
              * the player, then do this!
              */
             if(e.getNewValue() == null) {
@@ -90,15 +100,31 @@ public class HomepageController implements Controller {
                         // if the Node has HBox then continue to the next code!
                         if (playerSlot instanceof HBox playerSlotHBox) {
                             Text text = (Text) playerSlotHBox.getChildren().get(0);
-                            // find Text with e.geOldValue()
+                            // find Text with e.getOldValue()
                             if (e.getOldValue() == text.getText()) {
                                 playerBar.getChildren().remove(playerSlot);
                             }
                         }
                     }
                 } catch (ConcurrentModificationException exception) {
-                    //FIXME why it gave me this Exception  everytime??
-                    System.err.println("IGNORE: " + exception.getLocalizedMessage());
+                    /* Reason:
+                    * it is not generally permissible for one thread to modify a Collection
+                    * while another thread is iterating over it. In general, the results of
+                    * the iteration are undefined under these circumstances. Some Iterator
+                    * implementations (including those of all the general purpose collection
+                    * implementations provided by the JRE) may choose to throw this exception
+                    * if this behavior is detected. Iterators that do this are known as fail-fast
+                    * iterators, as they fail quickly and cleanly, rather that risking arbitrary,
+                    * non-deterministic behavior at an undetermined time in the future.
+                    *
+                    * */
+                    //System.err.println("IGNORE: " + exception.getCause());
+                }
+                if(mainScene.getChildren().size() < 2 &&
+                        app.getCoreData().getPlayers().size() != 0) {
+                    mainScene.getChildren().add(homepageScrollPane);
+                } else {
+                    mainScene.getChildren().remove(homepageScrollPane);
                 }
             }
             parent.autosize();
@@ -107,6 +133,7 @@ public class HomepageController implements Controller {
         player.listeners().addPropertyChangeListener(Player.PROPERTY_NAME, playerListener);
         playerListnerList.add(playerListener);
 
+        //show only a playerSlot in the homepage
         PlayerSlotController playerSlotController = new PlayerSlotController(app, player);
         playerSlotController.init();
         player.setId(id);
@@ -114,11 +141,12 @@ public class HomepageController implements Controller {
     }
 
     private void toControlPanel( TextField userName ) {
-        if(!userName.getText().equals("")){
+        if(!userName.getText().equals("") && checkName(userName,app)){
             //if the text NOT EMPTY then do this!
             Player player = new Player()
                     .setName(userName.getText())
                     .withHistories();
+
             app.show(new OptionController(this.app, player));
         } else {
             //TODO make a warning that the name should not be empty!
@@ -141,11 +169,11 @@ public class HomepageController implements Controller {
         }
     }
 
-    public void creatExamplePlayersBar(VBox playerBar, Parent parent) throws IOException {
+    public void creatExamplePlayersBar( VBox playerBar, Parent parent, ScrollPane homepageScrollPane, HBox mainScene ) throws IOException {
         if(IS_DEBUG){
             for (int i = 0; i < 20; i++) {
                 Player player = new Player().setName("player " + i);
-                addPlayerSlot(parent, playerBar, i, player);
+                addPlayerSlot(parent, playerBar, i, player, homepageScrollPane, mainScene);
             }
         }
     }

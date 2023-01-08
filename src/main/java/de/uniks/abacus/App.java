@@ -24,13 +24,12 @@ public class App extends Application {
     private int origin;
     private int bound;
     private char operation;
-    private final Game coreData = new Game();
+    private final AppService appService = new AppService();
+    private final Game coreData = appService.load();
 
     public Game getCoreData() {
         return coreData;
     }
-
-    private final AppService appService = new AppService();
 
     @Override
     public void start(Stage primaryStage)
@@ -41,12 +40,11 @@ public class App extends Application {
 
         show(new HomepageController(this));
         primaryStage.show();
-
-        primaryStage.setOnCloseRequest(e -> controller.destroy());
     }
 
     @Override
-    public void stop() throws Exception {
+    public void stop() throws Exception
+    {
         appService.save(coreData);
         controller.destroy();
     }

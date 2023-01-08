@@ -53,7 +53,7 @@ public class ResultController implements Controller{
                 Objects.requireNonNull(Controller.class.getResource("/de/uniks/abacus/views/ResultPanel.fxml")));
 
         if(result == null){
-            //FIXMe the alert is not showing on the screen!
+            //FIXME the alert is not showing on the screen!
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Program Error!");
             alert.setContentText("Result is empty, please contact developer!");

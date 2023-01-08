@@ -1,12 +1,16 @@
 package de.uniks.abacus.model;
 
+import de.uniks.abacus.App;
+import javafx.scene.control.TextField;
 import org.fulib.yaml.Yaml;
+import org.fulib.yaml.YamlIdMap;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 import java.util.Random;
 
 import static de.uniks.abacus.Constant.*;
@@ -175,5 +179,26 @@ public class AppService {
         Files.createDirectories(Path.of("data/"));
         Files.writeString(Path.of("data/coreData.yaml"), yaml);
     }
+
+    public Game load() {
+        try{
+            final String yaml = Files.readString(Path.of("data/coreData.yaml"));
+            final YamlIdMap idMap = new YamlIdMap(Game.class.getPackageName());
+            return (Game) idMap.decode(yaml);
+        } catch (IOException e) {
+            return new Game();
+        }
+    }
+
+    public static boolean checkName( TextField textField, App app ){
+        for (Player player : app.getCoreData().getPlayers()) {
+            if(textField.getText().equals(player.getName())){
+                return false;
+            }
+        }
+        return true;
+    }
+
+
 
 }

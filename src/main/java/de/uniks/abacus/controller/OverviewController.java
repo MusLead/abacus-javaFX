@@ -98,8 +98,6 @@ public class OverviewController implements Controller{
 
     @Override
     public void keyboardListener( KeyEvent e ) {
-        if(e.getCode() == KeyCode.ENTER){
-            //TODO??? what implement here?
-        }
+
     }
 }

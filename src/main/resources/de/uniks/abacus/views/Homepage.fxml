@@ -8,18 +8,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<HBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-      prefHeight="400.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+<HBox fx:id="mainScene" alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
    <VBox alignment="CENTER" prefHeight="400.0" spacing="15.0">
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New Player:"/>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New Player:" />
       <TextField fx:id="nameInput">
          <VBox.margin>
-            <Insets left="40.0" right="40.0"/>
+            <Insets left="40.0" right="40.0" />
          </VBox.margin>
       </TextField>
-      <Button fx:id="startButton" mnemonicParsing="false" text="Start"/>
+      <Button fx:id="startButton" mnemonicParsing="false" text="Start" />
    </VBox>
    <ScrollPane fx:id="homepageScrollPane" prefHeight="200.0">
-      <VBox fx:id="playerBar" prefHeight="400.0"/>
+      <VBox fx:id="playerBar" prefHeight="400.0" />
    </ScrollPane>
 </HBox>

@@ -40,8 +40,8 @@ public class PlayerSlotController implements Controller{
         final Text wrongText = (Text) parent.lookup("#wrongText");
         final Button deleteButton = (Button) parent.lookup("#deleteButton");
         final Button continueButton = (Button) parent.lookup("#continueButton");
-
-        nameText.setText(player.getName());
+        String name = player.getName();
+        nameText.setText(name.toCharArray().length > 8 ? name.substring(0,8) + ".." : name);
         correctText.setText("Correct: " + player.getRightSum());
         wrongText.setText("Wrong: " + player.getWrongSum());
         deleteButton.setOnAction(event -> app.deletePlayer(player));
