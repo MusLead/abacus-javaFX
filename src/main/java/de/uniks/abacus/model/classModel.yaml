@@ -1,5 +1,5 @@
 - c: 	org.fulib.classmodel.ClassModel
-  classes: 	result 	history 	player
+  classes: 	result 	history 	player 	game
   defaultCollectionType: 	c1
   defaultPropertyStyle: 	Bean
   defaultRoleType: 	"java.util.ArrayList<%s>"
@@ -24,12 +24,19 @@
   roles: 	history_results 	history_player
 
 - player: 	org.fulib.classmodel.Clazz
-  attributes: 	player_rightSum 	player_wrongSum 	player_name
+  attributes: 	player_rightSum 	player_wrongSum 	player_name 	player_id
   model: 	c
   modified: 	false
   name: 	Player
   propertyStyle: 	Bean
-  roles: 	player_results 	player_histories
+  roles: 	player_results 	player_histories 	player_Game_players
+
+- game: 	org.fulib.classmodel.Clazz
+  model: 	c
+  modified: 	false
+  name: 	Game
+  propertyStyle: 	Bean
+  roles: 	game_players
 
 - c1: 	org.fulib.classmodel.CollectionType
   implClass: 	class java.util.ArrayList
@@ -197,6 +204,15 @@
   type: 	String
   typeSignature: 	String
 
+- player_id: 	org.fulib.classmodel.Attribute
+  clazz: 	player
+  id: 	Player_id
+  modified: 	false
+  name: 	id
+  propertyStyle: 	Bean
+  type: 	int
+  typeSignature: 	int
+
 - player_results: 	org.fulib.classmodel.AssocRole
   aggregation: 	false
   cardinality: 	42
@@ -218,6 +234,29 @@
   modified: 	false
   name: 	histories
   other: 	history_player
+  propertyStyle: 	Bean
+  roleType: 	"java.util.ArrayList<%s>"
+
+- player_Game_players: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	0
+  clazz: 	player
+  collectionType: 	c1
+  id: 	Player_Game_players
+  modified: 	false
+  other: 	game_players
+  propertyStyle: 	Bean
+  roleType: 	"java.util.ArrayList<%s>"
+
+- game_players: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	game
+  collectionType: 	c1
+  id: 	Game_players
+  modified: 	false
+  name: 	players
+  other: 	player_Game_players
   propertyStyle: 	Bean
   roleType: 	"java.util.ArrayList<%s>"
 

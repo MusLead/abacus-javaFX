@@ -1,18 +1,24 @@
 package de.uniks.abacus.model;
 
-
 import org.fulib.builder.ClassModelDecorator;
 import org.fulib.builder.ClassModelManager;
 import org.fulib.builder.reflect.Link;
 
 import java.util.List;
+
 @SuppressWarnings("unused")
 public class GenModel implements ClassModelDecorator{
+
+    class Game {
+        @Link
+        List<Player> players;
+    }
 
     class Player {
         int rightSum;
         int wrongSum;
         String name;
+        int id;
         @Link("player")
         List<History> histories;
         @Link("player")

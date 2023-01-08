@@ -25,7 +25,9 @@ public class CalculationController implements Controller {
     private final int bound;
     private TextField answerField;
 
-    public CalculationController( App app, Player player, int firstValue, char operation, int secondValue, int origin, int bound ) {
+    public CalculationController( App app, Player player,
+                                  int firstValue, char operation, int secondValue,
+                                  int origin, int bound ) {
         this.app = app;
         this.player = player;
         this.firstValue = firstValue;
@@ -37,7 +39,7 @@ public class CalculationController implements Controller {
 
     @Override
     public String getTitle() {
-        return "Calculation Panel";
+        return CALCULATION_TITLE;
     }
 
     @Override
@@ -66,9 +68,7 @@ public class CalculationController implements Controller {
         final Button continueButton = (Button) parent.lookup("#continueButton");
         // Set Start button onAction
         taskText.setText(firstValue + " " + operation + " "+ secondValue + " =");
-        continueButton.setOnAction(event -> {
-            toResultScene(answerField);
-        });
+        continueButton.setOnAction(event -> toResultScene(answerField));
 
         return parent;
     }
@@ -80,6 +80,10 @@ public class CalculationController implements Controller {
             userInput = Integer.parseInt(answerField.getText());
             Result result = appService.creatNewResult(player, firstValue, operation,
                                                       secondValue, userInput);
+            if(!app.getCoreData().getPlayers().contains(result.getPlayer())) {
+                //if app DOES NOT CONTAIN Player, then add them to the app!
+                app.getCoreData().withPlayers(result.getPlayer());
+            }
             app.show(new ResultController(this.app,result, origin, bound));
         } catch(NumberFormatException e){
             System.out.println("invalid input!");

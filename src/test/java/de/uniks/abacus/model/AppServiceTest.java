@@ -16,7 +16,7 @@ public class AppServiceTest {
      *
      * for the bound and the userInputs can Only accept 10 digits number (because of the
      * userInput = Integer.parseInt(answerField.getText()); (CalculationController.class)
-     * by default only accept 10 Digits. //TODO find aa way to set them baseed on
+     * by default only accept 10 Digits.
      */
 
     final AppService AS = new AppService();
@@ -49,32 +49,15 @@ public class AppServiceTest {
     @Test
     public void checkDivisionTest(){
         int firstVal = 3, secondVal = 2;
-        Player player = new Player().withHistories(new History().withResults(
-                new Result().setFirstVal(firstVal)
-                        .setSecondVal(secondVal)
-                        .setOperation('/')
-        ));
-
-        AS.checkDivisionNew(player, 0, 1000, firstVal, secondVal);
         for (int i = 0; i < 100; i++) {
-            /*
-             * Logic Failure:
-             * There could be a case where the value could be the same as before
-             * */
-//            int historyIndex = player.getHistories().size() - 1;
-//            int resultIndex = player.getHistories().get(historyIndex).getResults().size() - 1;
-//            Result currentResult = player.getHistories().get(historyIndex).getResults().get(resultIndex);
-//            int firstValNow = currentResult.getFirstVal();
-//            int secondValNow = currentResult.getSecondVal();
-//            assertNotEquals(firstVal, firstValNow);
-//            assertNotEquals(secondVal, secondValNow);
-
-            /* why (float) ?
+            Result result = AS.checkDivision(0, 1000, firstVal, secondVal);
+            /* why (float) with brackets?
              * https://stackoverflow.com/questions/65678297/solve-integer-division-in-floating-point-context
              */
-            float resultTest = (float) (firstVal / secondVal) * 10;
+            float resultTest = (float) (result.getFirstVal() / result.getSecondVal()) * 10;
             //it should return true, if the (result*10)%10 should be 0
             assertEquals(0, (resultTest) % 10);
+            assertTrue(result.getFirstVal() > result.getSecondVal()); // test if the firstValue is bigger than secondvalue!
         }
     }
 }

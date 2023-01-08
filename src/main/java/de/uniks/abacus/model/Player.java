@@ -1,4 +1,5 @@
 package de.uniks.abacus.model;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
@@ -14,12 +15,14 @@ public class Player
    public static final String PROPERTY_HISTORIES = "histories";
    public static final String PROPERTY_NAME = "name";
    public static final String PROPERTY_RESULTS = "results";
+   public static final String PROPERTY_ID = "id";
    private int rightSum;
    private int wrongSum;
    private List<History> histories;
    protected PropertyChangeSupport listeners;
    private String name;
    private List<Result> results;
+   private int id;
 
    public int getRightSum()
    {
@@ -204,6 +207,24 @@ public class Player
       {
          this.withoutResults(item);
       }
+      return this;
+   }
+
+   public int getId()
+   {
+      return this.id;
+   }
+
+   public Player setId(int value)
+   {
+      if (value == this.id)
+      {
+         return this;
+      }
+
+      final int oldValue = this.id;
+      this.id = value;
+      this.firePropertyChange(PROPERTY_ID, oldValue, value);
       return this;
    }
 

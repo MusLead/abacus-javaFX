@@ -1,0 +1,48 @@
+- g: 	de.uniks.abacus.model.Game
+  players: 	0
+
+- 0: 	de.uniks.abacus.model.Player
+  histories: 	h
+  id: 	0
+  name: 	AGha
+  results: 	r 	r1 	r2
+  rightSum: 	0
+  wrongSum: 	3
+
+- h: 	de.uniks.abacus.model.History
+  player: 	0
+  results: 	r 	r1 	r2
+  rightResultTotal: 	0
+  time: 	"01/08/2023 (19:12:08 - 19:12:11)"
+  wrongResultTotal: 	3
+
+- r: 	de.uniks.abacus.model.Result
+  firstVal: 	1482
+  history: 	h
+  operation: 	+
+  player: 	0
+  resultStatus: 	"WRONG, TRY AGAIN!"
+  resultVal: 	12312
+  rightVal: 	3486
+  secondVal: 	2004
+
+- r1: 	de.uniks.abacus.model.Result
+  firstVal: 	3828
+  history: 	h
+  operation: 	+
+  player: 	0
+  resultStatus: 	"WRONG, TRY AGAIN!"
+  resultVal: 	312312
+  rightVal: 	6560
+  secondVal: 	2732
+
+- r2: 	de.uniks.abacus.model.Result
+  firstVal: 	9697
+  history: 	h
+  operation: 	+
+  player: 	0
+  resultStatus: 	"WRONG, TRY AGAIN!"
+  resultVal: 	1312312
+  rightVal: 	17210
+  secondVal: 	7513
+

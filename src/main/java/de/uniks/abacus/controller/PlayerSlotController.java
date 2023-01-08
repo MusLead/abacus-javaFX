@@ -1,11 +1,25 @@
 package de.uniks.abacus.controller;
 
+import de.uniks.abacus.App;
+import de.uniks.abacus.model.Player;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class PlayerSlotController implements Controller{
+    private final App app;
+    private final Player player;
+
+    public PlayerSlotController( App app, Player player ) {
+        this.app = app;
+        this.player = player;
+    }
+
     @Override
     public String getTitle() {
         return null;
@@ -18,7 +32,21 @@ public class PlayerSlotController implements Controller{
 
     @Override
     public Parent render() throws IOException {
-        return null;
+        final Parent parent = FXMLLoader.load(
+                Objects.requireNonNull(Controller.class.getResource("/de/uniks/abacus/views/PlayersSlot.fxml")));
+        //Lookup
+        final Text nameText = (Text) parent.lookup("#nameText");
+        final Text correctText = (Text) parent.lookup("#correctText");
+        final Text wrongText = (Text) parent.lookup("#wrongText");
+        final Button deleteButton = (Button) parent.lookup("#deleteButton");
+        final Button continueButton = (Button) parent.lookup("#continueButton");
+
+        nameText.setText(player.getName());
+        correctText.setText("Correct: " + player.getRightSum());
+        wrongText.setText("Wrong: " + player.getWrongSum());
+        deleteButton.setOnAction(event -> app.deletePlayer(player));
+        continueButton.setOnAction(event -> app.show(new OverviewController(app, player)));
+        return parent;
     }
 
     @Override

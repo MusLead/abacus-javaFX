@@ -5,6 +5,7 @@ import de.uniks.abacus.model.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -12,10 +13,9 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 import java.util.Objects;
 
+import static de.uniks.abacus.Constant.*;
+
 public class OverviewController implements Controller{
-
-    //TODO: add scrollpane!!!
-
     private final App app;
     private final Player player;
 
@@ -26,7 +26,7 @@ public class OverviewController implements Controller{
 
     @Override
     public String getTitle() {
-        return "Overview";
+        return OVERVIEW_TITLE;
     }
 
     @Override
@@ -47,8 +47,14 @@ public class OverviewController implements Controller{
         final Text nameText = (Text) parent.lookup("#nameText");
         final Text correctText = (Text) parent.lookup("#correctText");
         final Text wrongText = (Text) parent.lookup("#wrongText");
-        final Accordion historyAccordion = (Accordion) parent.lookup("#historyAccordion");
-        historyAccordion.getPanes().clear();
+
+        final ScrollPane historyScrollPane = (ScrollPane) parent.lookup("#historyScrollPane");
+        final Accordion historyAccordion = (Accordion) historyScrollPane.getContent();
+
+        if(!IS_DEBUG){
+            //if debug is true, then we want to see the default result of the FXML!)
+            historyAccordion.getPanes().clear();
+        }
         nameText.setText(player.getName());
         correctText.setText("Correct: " + player.getRightSum());
         wrongText.setText("Wrong: " + player.getWrongSum());
@@ -58,10 +64,9 @@ public class OverviewController implements Controller{
             player.withHistories(new History().setTime(AppService.currentTime()));
             app.show(new OptionController(this.app,player));
         });
-        mainMenuButton.setOnAction(e -> {
-            app.show(new HomepageController(this.app));
-        });
+        mainMenuButton.setOnAction(e -> app.show(new HomepageController(this.app)));
         deletePlayerButton.setOnAction(e -> {
+            app.deletePlayer(player);
             app.show(new HomepageController(this.app));
         });
 
@@ -93,6 +98,8 @@ public class OverviewController implements Controller{
 
     @Override
     public void keyboardListener( KeyEvent e ) {
-
+        if(e.getCode() == KeyCode.ENTER){
+            //TODO??? what implement here?
+        }
     }
 }

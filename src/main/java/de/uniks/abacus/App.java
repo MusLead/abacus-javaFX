@@ -2,6 +2,7 @@ package de.uniks.abacus;
 
 import de.uniks.abacus.controller.*;
 import de.uniks.abacus.model.AppService;
+import de.uniks.abacus.model.Game;
 import de.uniks.abacus.model.Player;
 import de.uniks.abacus.model.Result;
 import javafx.application.Application;
@@ -13,7 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Random;
+import java.util.*;
 
 import static de.uniks.abacus.Constant.*;
 
@@ -23,6 +24,11 @@ public class App extends Application {
     private int origin;
     private int bound;
     private char operation;
+    private final Game coreData = new Game();
+
+    public Game getCoreData() {
+        return coreData;
+    }
 
     private final AppService appService = new AppService();
 
@@ -39,21 +45,22 @@ public class App extends Application {
         primaryStage.setOnCloseRequest(e -> controller.destroy());
     }
 
-    public void show(Controller controller)
+    @Override
+    public void stop() throws Exception {
+        appService.save(coreData);
+        controller.destroy();
+    }
+
+    public void show( Controller controller)
     {
         controller.init();
         try
         {
             Scene scene = stage.getScene();
             scene.setRoot(controller.render());
-            //https://youtu.be/tq_0im9qc6E
+            //https://youtu.be/tq_0im9qc6E KeyboardListener Tutorial
             scene.setOnKeyPressed(controller::keyboardListener);
-
-			/*
-			because the size of battle Scene and login Scene are different on size
-			it has to adapt with the current size of the scene!
-			https://stackoverflow.com/questions/13986475/automatically-resize-stage-if-content-is-changed
-			 */
+			//https://stackoverflow.com/questions/13986475/automatically-resize-stage-if-content-is-changed
             stage.sizeToScene();
         }
         catch (IOException ex)
@@ -73,7 +80,8 @@ public class App extends Application {
         stage.setTitle(controller.getTitle());
     }
 
-    public void menuItemsSetOnAction( MenuButton optMenuButton ) {
+    public void menuItemsSetOnAction( MenuButton optMenuButton )
+    {
         if(optMenuButton == null){
             throw new NullPointerException("optionMenuButton not found");
         }
@@ -82,27 +90,20 @@ public class App extends Application {
         final MenuItem multiplicationMenuItem = optMenuButton.getItems().get(2);
         final MenuItem divisionMenuItem = optMenuButton.getItems().get(3);
 
-        plusMenuItem.setOnAction(e -> {
-            optMenuButton.setText(plusMenuItem.getText());
-        });
+        plusMenuItem.setOnAction(e -> optMenuButton.setText(plusMenuItem.getText()));
 
-        minusMenuItem.setOnAction(e -> {
-            optMenuButton.setText(minusMenuItem.getText());
-        });
+        minusMenuItem.setOnAction(e -> optMenuButton.setText(minusMenuItem.getText()));
 
-        multiplicationMenuItem.setOnAction(e -> {
-            optMenuButton.setText(multiplicationMenuItem.getText());
-        });
+        multiplicationMenuItem.setOnAction(e -> optMenuButton.setText(multiplicationMenuItem.getText()));
 
-        divisionMenuItem.setOnAction(e -> {
-            optMenuButton.setText(divisionMenuItem.getText());
-        });
+        divisionMenuItem.setOnAction(e -> optMenuButton.setText(divisionMenuItem.getText()));
 
     }
 
     public void setStandardInputControl( char operation, MenuButton optMenuButton,
                                          TextField originField, TextField boundField,
-                                         int origin, int bound ) {
+                                         int origin, int bound )
+    {
         if(bound != 0 || bound > origin ) {
             optMenuButton.setText(String.valueOf(operation));
             originField.setText(String.valueOf(origin));
@@ -118,7 +119,8 @@ public class App extends Application {
 
     }
 
-    public void toCalculation( Player player, TextField originField, TextField boundField, MenuButton optMenuButton ) {
+    public void toCalculation( Player player, TextField originField, TextField boundField, MenuButton optMenuButton )
+    {
         Random random = new Random();
         int origin = Integer.parseInt(originField.getText());
         int bound = Integer.parseInt(boundField.getText());
@@ -127,7 +129,7 @@ public class App extends Application {
         char operation = optMenuButton.getText().toCharArray()[0];
         this.operation = operation;
         if(operation == '/') {
-            Result result = appService.checkDivisionNew(origin, bound, firstValue, secondValue);
+            Result result = appService.checkDivision(origin, bound, firstValue, secondValue);
             if(result.getResultStatus().contains(TEMP_STATUS)){
                 firstValue = result.getFirstVal();
                 secondValue = result.getSecondVal();
@@ -137,7 +139,8 @@ public class App extends Application {
         show(new CalculationController(this,player,firstValue,operation,secondValue,origin,bound));
     }
 
-    public void setLimitOriginBound( TextField originField, TextField boundField ) {
+    public void setLimitOriginBound( TextField originField, TextField boundField)
+    {
         //https://stackoverflow.com/questions/22714268/how-to-limit-the-amount-of-characters-a-javafx-textfield
         originField.lengthProperty().addListener(( observable, oldValue, newValue ) -> {
             if (newValue.intValue() > oldValue.intValue()) {
@@ -160,4 +163,14 @@ public class App extends Application {
         });
     }
 
+    public void deletePlayer (Player player)
+    {
+        player.setName(null);
+        coreData.withoutPlayers(player);
+    }
+
+    public void updateStageSize()
+    {
+        stage.sizeToScene();
+    }
 }

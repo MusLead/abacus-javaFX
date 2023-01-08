@@ -7,14 +7,14 @@
 <?import javafx.scene.text.Text?>
 
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Text fx:id="taskText" strokeType="OUTSIDE" strokeWidth="0.0" text="2+2 =" />
-      <TextField fx:id="answerField">
-         <VBox.margin>
-            <Insets left="100.0" right="100.0" />
-         </VBox.margin>
-      </TextField>
-      <Button fx:id="continueButton" mnemonicParsing="false" text="continue" />
-   </children>
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxmlx">
+   <Text fx:id="taskText" strokeType="OUTSIDE" strokeWidth="0.0" text="2+2 ="/>
+   <TextField fx:id="answerField">
+      <VBox.margin>
+         <Insets left="100.0" right="100.0"/>
+      </VBox.margin>
+   </TextField>
+   <Button fx:id="continueButton" mnemonicParsing="false" text="continue"/>
 </VBox>

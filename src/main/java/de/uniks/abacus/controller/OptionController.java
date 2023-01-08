@@ -5,17 +5,23 @@ import de.uniks.abacus.model.Player;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 import java.io.IOException;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import static de.uniks.abacus.Constant.*;
+
 
 public class OptionController implements Controller{
     private final App app;
     private final Player player;
     private static final AtomicBoolean wasInOverview = new AtomicBoolean();
+    private TextField originField = null;
+    private TextField boundField = null;
+    private MenuButton optMenuButton = null;
 
     public OptionController( App app, Player player ) {
         this.app = app;
@@ -24,7 +30,7 @@ public class OptionController implements Controller{
 
     @Override
     public String getTitle() {
-        return "Control Panel";
+        return OPTION_TITLE;
     }
 
     @Override
@@ -38,22 +44,18 @@ public class OptionController implements Controller{
         final Parent parent = FXMLLoader.load(
                 Objects.requireNonNull(Controller.class.getResource("/de/uniks/abacus/views/OptionsPanel.fxml")));
         // Lookup
-        final TextField originField = (TextField) parent.lookup("#originField");
-        final TextField boundField = (TextField) parent.lookup("#boundField");
+        originField = (TextField) parent.lookup("#originField");
+        boundField = (TextField) parent.lookup("#boundField");
         final Button continueButton = (Button) parent.lookup("#continueButton");
         final Button mainMenuButton = (Button) parent.lookup("#mainMenuButton");
         final Button overViewButton = (Button) parent.lookup("#overViewButton");
-        final MenuButton optMenuButton = (MenuButton) parent.lookup("#optMenuButton");
+        optMenuButton = (MenuButton) parent.lookup("#optMenuButton");
 
         app.setLimitOriginBound(originField, boundField);
 
         // Set button onAction
-        continueButton.setOnAction(event -> {
-            app.toCalculation(player, originField, boundField, optMenuButton);
-        });
-        mainMenuButton.setOnAction(e -> {
-            app.show(new HomepageController(this.app));
-        });
+        continueButton.setOnAction(event -> app.toCalculation(player, originField, boundField, optMenuButton));
+        mainMenuButton.setOnAction(e -> app.show(new HomepageController(this.app)));
         overViewButton.setOnAction(e -> {
             char oldOpt = optMenuButton.getText().toCharArray()[0];
             app.setStandardInputControl(oldOpt, optMenuButton, originField, boundField,
@@ -89,6 +91,8 @@ public class OptionController implements Controller{
 
     @Override
     public void keyboardListener( KeyEvent e ) {
-
+        if(e.getCode() == KeyCode.ENTER){
+            app.toCalculation(player, originField, boundField, optMenuButton);
+        }
     }
 }

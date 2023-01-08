@@ -1,5 +1,6 @@
-package de.uniks.abacus;
+package de.uniks.abacus.app;
 
+import de.uniks.abacus.App;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.junit.Test;

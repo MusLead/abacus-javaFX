@@ -7,16 +7,18 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static de.uniks.abacus.Constant.CORRECT;
+import static de.uniks.abacus.Constant.RESULT_TITLE;
+import static de.uniks.abacus.model.AppService.currentTimeFinish;
 
 public class ResultController implements Controller{
     private final App app;
@@ -24,6 +26,8 @@ public class ResultController implements Controller{
     private final int origin;
     private final int bound;
     private final List<Node> resultsSettings = new ArrayList<>();
+    private Parent parent;
+    private Accordion accordion;
 
     public ResultController( App app, Result result, int origin, int bound ) {
         this.app = app;
@@ -34,7 +38,7 @@ public class ResultController implements Controller{
 
     @Override
     public String getTitle() {
-        return "Result";
+        return RESULT_TITLE;
     }
 
     @Override
@@ -45,11 +49,11 @@ public class ResultController implements Controller{
     @Override
     public Parent render() throws IOException {
         // Load FXML
-        final Parent parent = FXMLLoader.load(
+        parent = FXMLLoader.load(
                 Objects.requireNonNull(Controller.class.getResource("/de/uniks/abacus/views/ResultPanel.fxml")));
 
         if(result == null){
-            //FIXME the alert is not showing on the screen!
+            //FIXMe the alert is not showing on the screen!
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Program Error!");
             alert.setContentText("Result is empty, please contact developer!");
@@ -62,7 +66,7 @@ public class ResultController implements Controller{
         final Button mainMenuButton = (Button) parent.lookup("#mainMenuButton");
         final Button continueButton = (Button) parent.lookup("#continueButton");
         final Button overViewButton = (Button) parent.lookup("#overViewButton");
-        final Accordion accordion = (Accordion) parent.lookup("#accordionSetting");
+        accordion = (Accordion) parent.lookup("#accordionSetting");
 
         getSettingsNode(accordion, resultsSettings, parent);
 
@@ -115,6 +119,7 @@ public class ResultController implements Controller{
                               (MenuButton) Objects.requireNonNull(resultsSettings.get(0)));
         });
         mainMenuButton.setOnAction(e -> {
+            result.getHistory().setTime(result.getHistory().getTime() + currentTimeFinish());
             app.show(new HomepageController(this.app));
         });
         overViewButton.setOnAction(e -> {
@@ -122,11 +127,6 @@ public class ResultController implements Controller{
             app.show(new OverviewController(this.app, result.getPlayer()));
         });
         return parent;
-    }
-
-    public static String currentTimeFinish() {
-        Date date = new Date();
-        return new SimpleDateFormat(" HH:mm)").format(date);
     }
 
     private void getSettingsNode( Accordion accordion, List<Node> resultsSettings, Parent parent ) {
@@ -156,7 +156,7 @@ public class ResultController implements Controller{
         resultsSettings.add(optMenuButton);
         resultsSettings.add(originField);
         resultsSettings.add(boundField);
-        app.setLimitOriginBound(originField,boundField);
+        app.setLimitOriginBound(Objects.requireNonNull(originField), Objects.requireNonNull(boundField));
     }
 
     @Override
@@ -166,6 +166,12 @@ public class ResultController implements Controller{
 
     @Override
     public void keyboardListener( KeyEvent e ) {
-
+        if(e.getCode() == KeyCode.ENTER) {
+            getSettingsNode(accordion, resultsSettings, parent);
+            app.toCalculation(result.getPlayer(),
+                              (TextField) Objects.requireNonNull(resultsSettings.get(1)),
+                              (TextField) Objects.requireNonNull(resultsSettings.get(2)),
+                              (MenuButton) Objects.requireNonNull(resultsSettings.get(0)));
+        }
     }
 }

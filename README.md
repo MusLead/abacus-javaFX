@@ -1,14 +1,20 @@
 # sempoa-javaFX
 
-Pesan:
-Jika ingin fxml file ke FXMLLoader. pastikan ketika membuat folder di resources itu ditulisnya dengan / -> de/uniks/
+Message:
+If you want fxml file to FXMLLoader. make sure when creating the folder in resources it writes / -> de/uniks/
 
-Urutan Pre-Programming:
+https://stackoverflow.com/questions/35210120/javafx-fxml-api-version-warning
+
+https://stackoverflow.com/questions/67854139/javafx-warning-unsupported-javafx-configuration-classes-were-loaded-from-unna
+
+https://stackoverflow.com/questions/22166610/how-to-create-a-popup-window-in-javafx
+
+Sequence of  Pre-Programming:
 1. Visulize how it will work
 2. make a visualiziation app diagram https://app.diagrams.net/?src=about#G12eUzmjwOSZCG4PPPmYOxSTjumZdBRfDp
 3. make a UML Diagram (How the objects will comunicates with each other!) https://app.diagrams.net/?src=about#G1KcfgyaG_7N5_adlyNNHz8oAcCQBFYNRw
 
-Urutan Programming
+Sequence of Programming:
 1. Create a project with gradle and creating a package name
 2. Adjust dependencies with fulib
 3. GenMode and generate Classes Objects
@@ -22,3 +28,9 @@ Urutan Programming
 11. Complete the code with the process's planning.
 12. Create Database
 13. Test the Application (make sure also scrolPane also included!)
+
+TODO:
+1. optional: hidescrollpane if there is no node!
+2. think about database!
+3. name of the player!cannot be the same must be different!
+3. make the name of the player PlayerSlot shorter and fixed length!

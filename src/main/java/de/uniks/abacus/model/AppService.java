@@ -1,5 +1,10 @@
 package de.uniks.abacus.model;
 
+import org.fulib.yaml.Yaml;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
@@ -70,7 +75,7 @@ public class AppService {
      * @param secondValue value of the second value
      * @return value of TEMPORARY RETURN!
      */
-    public Result checkDivisionNew(int origin, int upperBound, int firstValue, int secondValue) {
+    public Result checkDivision( int origin, int upperBound, int firstValue, int secondValue) {
 
         int firstValNow = 0, secondValNow = 0;
         //https://stackoverflow.com/questions/65678297/solve-integer-division-in-floating-point-context
@@ -158,7 +163,17 @@ public class AppService {
     }
 
     public static String currentTime() {
-        Date date = new Date();
-        return new SimpleDateFormat("MM/dd/yyyy (HH:mm - ").format(date);
+        return new SimpleDateFormat("MM/dd/yyyy (HH:mm:ss - ").format(new Date());
     }
+
+    public static String currentTimeFinish() {
+        return new SimpleDateFormat("HH:mm:ss)").format(new Date());
+    }
+
+    public void save(Game game) throws IOException {
+        final String yaml = Yaml.encode(game);
+        Files.createDirectories(Path.of("data/"));
+        Files.writeString(Path.of("data/coreData.yaml"), yaml);
+    }
+
 }

@@ -10,4 +10,5 @@ public class Constant {
     public static final String OVERVIEW_TITLE = "Overview";
     public static final String RESULT_TITLE = "Result";
     public static final String CALCULATION_TITLE = "Calculation";
+    public static final boolean IS_DEBUG = false;
 }
