@@ -1,8 +1,7 @@
 package de.uniks.abacus.controller;
 
 import de.uniks.abacus.App;
-import de.uniks.abacus.model.AppService;
-import de.uniks.abacus.model.Player;
+import de.uniks.abacus.model.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;

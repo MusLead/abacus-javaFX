@@ -5,8 +5,7 @@ import de.uniks.abacus.model.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
+import javafx.scene.input.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
