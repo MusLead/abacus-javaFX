@@ -38,7 +38,7 @@ public class GenModel implements ClassModelDecorator{
 
     class Result {
         String resultStatus;
-        char operation;
+        String operation; //because the yaml cannot accept - (minus) as char
         int firstVal;
         int secondVal;
         int resultVal;

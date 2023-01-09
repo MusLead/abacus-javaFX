@@ -53,7 +53,7 @@
 <text text-anchor="start" x="86.73" y="-394.4" font-family="Times,serif" font-size="14.00">Result</text>
 <polygon fill="none" stroke="black" points="48.62,-282 48.62,-388 160.62,-388 160.62,-282 48.62,-282"/>
 <text text-anchor="start" x="51.62" y="-372.4" font-family="Times,serif" font-size="14.00">resultStatus :String</text>
-<text text-anchor="start" x="51.62" y="-355.6" font-family="Times,serif" font-size="14.00">operation :char</text>
+<text text-anchor="start" x="51.62" y="-355.6" font-family="Times,serif" font-size="14.00">operation :String</text>
 <text text-anchor="start" x="51.62" y="-338.8" font-family="Times,serif" font-size="14.00">firstVal :int</text>
 <text text-anchor="start" x="51.62" y="-322" font-family="Times,serif" font-size="14.00">secondVal :int</text>
 <text text-anchor="start" x="51.62" y="-305.2" font-family="Times,serif" font-size="14.00">resultVal :int</text>

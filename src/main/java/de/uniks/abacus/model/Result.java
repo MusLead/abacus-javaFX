@@ -6,15 +6,14 @@ import java.beans.PropertyChangeSupport;
 public class Result
 {
    public static final String PROPERTY_RESULT_STATUS = "resultStatus";
-   public static final String PROPERTY_OPERATION = "operation";
    public static final String PROPERTY_FIRST_VAL = "firstVal";
    public static final String PROPERTY_SECOND_VAL = "secondVal";
    public static final String PROPERTY_RESULT_VAL = "resultVal";
    public static final String PROPERTY_RIGHT_VAL = "rightVal";
    public static final String PROPERTY_HISTORY = "history";
    public static final String PROPERTY_PLAYER = "player";
+   public static final String PROPERTY_OPERATION = "operation";
    private String resultStatus;
-   private char operation;
    private int firstVal;
    private int secondVal;
    private int resultVal;
@@ -22,6 +21,7 @@ public class Result
    protected PropertyChangeSupport listeners;
    private History history;
    private Player player;
+   private String operation;
 
    public String getResultStatus()
    {
@@ -38,24 +38,6 @@ public class Result
       final String oldValue = this.resultStatus;
       this.resultStatus = value;
       this.firePropertyChange(PROPERTY_RESULT_STATUS, oldValue, value);
-      return this;
-   }
-
-   public char getOperation()
-   {
-      return this.operation;
-   }
-
-   public Result setOperation(char value)
-   {
-      if (value == this.operation)
-      {
-         return this;
-      }
-
-      final char oldValue = this.operation;
-      this.operation = value;
-      this.firePropertyChange(PROPERTY_OPERATION, oldValue, value);
       return this;
    }
 
@@ -185,6 +167,24 @@ public class Result
       return this;
    }
 
+   public String getOperation()
+   {
+      return this.operation;
+   }
+
+   public Result setOperation(String value)
+   {
+      if (Objects.equals(value, this.operation))
+      {
+         return this;
+      }
+
+      final String oldValue = this.operation;
+      this.operation = value;
+      this.firePropertyChange(PROPERTY_OPERATION, oldValue, value);
+      return this;
+   }
+
    public boolean firePropertyChange(String propertyName, Object oldValue, Object newValue)
    {
       if (this.listeners != null)
@@ -209,6 +209,7 @@ public class Result
    {
       final StringBuilder result = new StringBuilder();
       result.append(' ').append(this.getResultStatus());
+      result.append(' ').append(this.getOperation());
       return result.substring(1);
    }
 

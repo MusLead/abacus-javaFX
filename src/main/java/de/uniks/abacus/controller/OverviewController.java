@@ -59,10 +59,7 @@ public class OverviewController implements Controller{
         wrongText.setText("Wrong: " + player.getWrongSum());
 
         // Set Start button onAction
-        continueButton.setOnAction(event -> {
-            player.withHistories(new History().setTime(AppService.currentTime()));
-            app.show(new OptionController(this.app,player));
-        });
+        continueButton.setOnAction(event -> app.show(new OptionController(this.app, player)));
         mainMenuButton.setOnAction(e -> app.show(new HomepageController(this.app)));
         deletePlayerButton.setOnAction(e -> {
             app.deletePlayer(player);

@@ -60,8 +60,8 @@
   modified: 	false
   name: 	operation
   propertyStyle: 	Bean
-  type: 	char
-  typeSignature: 	char
+  type: 	String
+  typeSignature: 	String
 
 - result_firstVal: 	org.fulib.classmodel.Attribute
   clazz: 	result

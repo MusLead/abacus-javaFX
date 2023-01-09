@@ -60,7 +60,6 @@ javafx {
     version = '17.0.2'
     modules = [ 'javafx.controls', 'javafx.graphics', 'javafx.fxml' ]
 }
-
 generateScenarioSource {
     classDiagramSVG = true
 }

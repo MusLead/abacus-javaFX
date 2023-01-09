@@ -1,22 +1,21 @@
 package de.uniks.abacus;
 
 import de.uniks.abacus.controller.*;
-import de.uniks.abacus.model.AppService;
-import de.uniks.abacus.model.Game;
-import de.uniks.abacus.model.Player;
-import de.uniks.abacus.model.Result;
+import de.uniks.abacus.model.*;
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.*;
 
 import static de.uniks.abacus.Constant.*;
+import static de.uniks.abacus.model.AppService.*;
 
 public class App extends Application {
     private Stage stage;
@@ -26,6 +25,7 @@ public class App extends Application {
     private char operation;
     private final AppService appService = new AppService();
     private final Game coreData = appService.load();
+    Player currentPlayer = null;
 
     public Game getCoreData() {
         return coreData;
@@ -45,6 +45,12 @@ public class App extends Application {
     @Override
     public void stop() throws Exception
     {
+        if(currentPlayer != null){
+            int indexHistory = currentPlayer.getHistories().size() - 1;
+            History currentHistory = currentPlayer.getHistories().get(indexHistory);
+            String currentTime = currentHistory.getTime() + currentTimeFinish();
+            currentHistory.setTime(currentTime);
+        }
         appService.save(coreData);
         controller.destroy();
     }
@@ -98,49 +104,79 @@ public class App extends Application {
 
     }
 
+    /**
+     *
+     * @param operation
+     * @param optMenuButton
+     * @param originField
+     * @param boundField
+     * @param origin
+     * @param bound
+     * @return value whether bound, origin, and operator has value
+     */
     public void setStandardInputControl( char operation, MenuButton optMenuButton,
                                          TextField originField, TextField boundField,
                                          int origin, int bound )
     {
         if(bound != 0 || bound > origin ) {
-            optMenuButton.setText(String.valueOf(operation));
-            originField.setText(String.valueOf(origin));
-            boundField.setText(String.valueOf(bound));
             this.origin = origin;
             this.bound = bound;
             this.operation = operation;
-        } else if (origin == 0 || operation == '0'){
-            originField.setText(String.valueOf(this.origin));
-            boundField.setText(String.valueOf(this.bound));
-            optMenuButton.setText(String.valueOf(this.operation));
         }
+        setStandardInputControlDefault(optMenuButton,originField,boundField);
+    }
+
+    /**
+     * this function show a default value if the bound is 0 and the origin also 0
+     * otherwise, it will give a value that has been saved by previous operation
+     * @param optMenuButton Operation button
+     * @param originField under bound value for random
+     * @param boundField upper bound value for random
+     */
+    public void setStandardInputControlDefault(MenuButton optMenuButton,
+                                         TextField originField, TextField boundField)
+    {
+        if(this.bound == 0 && this.origin == 0){
+            //if the bound and origin still 0 set default value.
+            // by default origin = 0
+            this.bound = 10000;
+            this.operation = '+';
+        }
+        originField.setText(String.valueOf(this.origin));
+        boundField.setText(String.valueOf(this.bound));
+        optMenuButton.setText(String.valueOf(this.operation));
 
     }
 
     public void toCalculation( Player player, TextField originField, TextField boundField, MenuButton optMenuButton )
     {
+        this.currentPlayer = player;
         Random random = new Random();
-        int origin = Integer.parseInt(originField.getText());
-        int bound = Integer.parseInt(boundField.getText());
-        int firstValue = random.nextInt(origin, bound);
-        int secondValue = random.nextInt(origin, bound);
-        char operation = optMenuButton.getText().toCharArray()[0];
-        this.operation = operation;
-        if(operation == '/') {
-            Result result = appService.checkDivision(origin, bound, firstValue, secondValue);
-            if(result.getResultStatus().contains(TEMP_STATUS)){
-                firstValue = result.getFirstVal();
-                secondValue = result.getSecondVal();
+        try {
+            int origin = Integer.parseInt(originField.getText());
+            int bound = Integer.parseInt(boundField.getText());
+            int firstValue = random.nextInt(origin, bound);
+            int secondValue = random.nextInt(origin, bound);
+            char operation = optMenuButton.getText().toCharArray()[0];
+            this.operation = operation;
+            if (operation == '/') {
+                Result result = appService.checkDivision(origin, bound, firstValue, secondValue);
+                if (result.getResultStatus().contains(TEMP_STATUS)) {
+                    firstValue = result.getFirstVal();
+                    secondValue = result.getSecondVal();
+                }
             }
+            show(new CalculationController(this, player, firstValue, operation, secondValue, origin, bound));
+        } catch (Exception e){
+            showDialog("ERROR",e.getMessage());
         }
-
-        show(new CalculationController(this,player,firstValue,operation,secondValue,origin,bound));
     }
 
-    public void setLimitOriginBound( TextField originField, TextField boundField)
+    public void setLimitOriginBound( TextField originField, TextField boundField,
+                                     List<ChangeListener<Number>> listenerList)
     {
         //https://stackoverflow.com/questions/22714268/how-to-limit-the-amount-of-characters-a-javafx-textfield
-        originField.lengthProperty().addListener(( observable, oldValue, newValue ) -> {
+        ChangeListener<Number> originListener = ( observable, oldValue, newValue ) -> {
             if (newValue.intValue() > oldValue.intValue()) {
                 // Check if the new character is greater than LIMIT
                 if (originField.getText().length() >= MAX_INT_LENGTH) {
@@ -148,9 +184,10 @@ public class App extends Application {
                     originField.setText(originField.getText().substring(0, MAX_INT_LENGTH));
                 }
             }
-        });
+        };
+        originField.lengthProperty().addListener(originListener);
 
-        boundField.lengthProperty().addListener(( observable, oldValue, newValue ) -> {
+        ChangeListener<Number> boundFieldListener = ( observable, oldValue, newValue ) -> {
             if (newValue.intValue() > oldValue.intValue()) {
                 // Check if the new character is greater than LIMIT
                 if (boundField.getText().length() >= MAX_INT_LENGTH) {
@@ -158,7 +195,14 @@ public class App extends Application {
                     boundField.setText(boundField.getText().substring(0, MAX_INT_LENGTH));
                 }
             }
-        });
+        };
+        boundField.lengthProperty().addListener(boundFieldListener);
+        /*
+        * this listener will be used in another class, if the scene from the class is closed
+        * then delete the listener too!
+        * */
+        listenerList.add(originListener);
+        listenerList.add(boundFieldListener);
     }
 
     public void deletePlayer (Player player)
@@ -171,4 +215,16 @@ public class App extends Application {
     {
         stage.sizeToScene();
     }
+
+    public void showDialog(String header, String text)
+    {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText(header);
+        alert.setContentText(text);
+        alert.initOwner(stage);
+        alert.initModality(Modality.APPLICATION_MODAL);
+        alert.show();
+    }
+
+
 }

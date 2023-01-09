@@ -138,7 +138,7 @@ public class AppService {
                 .setPlayer(player)
                 .setFirstVal(firstVal)
                 .setSecondVal(secondVal)
-                .setOperation(operation)
+                .setOperation(String.valueOf(operation))
                 .setRightVal(calculate(firstVal,operation,secondVal))
                 .setResultVal(userInput);
 
@@ -146,9 +146,9 @@ public class AppService {
         if(currentHistorySize != 0) {
             //take the last history that is being created and put the result in
             History currentHistory = player.getHistories().get(currentHistorySize - 1);
-            currentHistory.withResults(result).setTime(currentTime());
+            currentHistory.withResults(result);
         } else {
-            History currentHistory = new History().withResults(result).setTime(currentTime());
+            History currentHistory = new History().withResults(result);
             player.withHistories(currentHistory);
         }
 
@@ -163,6 +163,8 @@ public class AppService {
 
         return result;
     }
+
+
 
     public static String currentTime() {
         return new SimpleDateFormat("MM/dd/yyyy (HH:mm:ss - ").format(new Date());

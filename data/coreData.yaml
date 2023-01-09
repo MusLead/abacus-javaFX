@@ -4,35 +4,25 @@
 - 0: 	de.uniks.abacus.model.Player
   histories: 	h
   id: 	0
-  name: 	"Agha Lola Bara"
-  results: 	r 	r1
+  name: 	Agha
+  results: 	r
   rightSum: 	0
-  wrongSum: 	2
+  wrongSum: 	1
 
 - h: 	de.uniks.abacus.model.History
   player: 	0
-  results: 	r 	r1
+  results: 	r
   rightResultTotal: 	0
-  time: 	"01/08/2023 (22:02:41 - 22:02:44)"
-  wrongResultTotal: 	2
+  time: 	"01/09/2023 (02:35:19 - 02:35:22)02:35:46)"
+  wrongResultTotal: 	1
 
 - r: 	de.uniks.abacus.model.Result
-  firstVal: 	7493
+  firstVal: 	6832
   history: 	h
-  operation: 	+
+  operation: 	"+"
   player: 	0
   resultStatus: 	"WRONG, TRY AGAIN!"
-  resultVal: 	3234
-  rightVal: 	13891
-  secondVal: 	6398
-
-- r1: 	de.uniks.abacus.model.Result
-  firstVal: 	4887
-  history: 	h
-  operation: 	+
-  player: 	0
-  resultStatus: 	"WRONG, TRY AGAIN!"
-  resultVal: 	234234
-  rightVal: 	11736
-  secondVal: 	6849
+  resultVal: 	222
+  rightVal: 	11497
+  secondVal: 	4665
 

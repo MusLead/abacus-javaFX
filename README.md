@@ -29,8 +29,7 @@ Sequence of Programming:
 11. Complete the code with the process's planning.
 12. Create Database
 13. Test the Application (make sure also scrollPane also included!)
+14. Evaluate the program
 
 TODO:
 1. MAKE A TEST APP CIRCULATION!
-2. make an Alert! with stage!show
-3. make the UI expandable (i.e. pref computer width)
