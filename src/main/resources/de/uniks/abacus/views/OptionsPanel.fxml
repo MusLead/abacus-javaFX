@@ -14,10 +14,9 @@
       <VBox alignment="BOTTOM_CENTER" prefHeight="86.0" prefWidth="304.0">
          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Operation" />
       </VBox>
-      <VBox alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="86.0" prefWidth="120.0">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Range of Number" />
-         </children>
+      <VBox alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="86.0"
+            prefWidth="120.0">
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Range of Number"/>
       </VBox>
    </HBox>
    <HBox alignment="CENTER" prefHeight="89.0" prefWidth="600.0">
@@ -28,16 +27,14 @@
          <Insets left="20.0" right="20.0" />
       </padding>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-         <children>
-            <MenuButton fx:id="optMenuButton" mnemonicParsing="false" text="opt">
-               <items>
-                  <MenuItem fx:id="plusMenuItem" mnemonicParsing="false" text="+" />
-                  <MenuItem fx:id="minusMenuItem" mnemonicParsing="false" text="-" />
-                  <MenuItem fx:id="multiplicationMenuItem" mnemonicParsing="false" text="*" />
-                  <MenuItem fx:id="divisionMenuItem" mnemonicParsing="false" text="/" />
-               </items>
-            </MenuButton>
-         </children>
+         <MenuButton fx:id="optMenuButton" mnemonicParsing="false" text="opt">
+            <items>
+               <MenuItem fx:id="plusMenuItem" mnemonicParsing="false" text="+"/>
+               <MenuItem fx:id="minusMenuItem" mnemonicParsing="false" text="-"/>
+               <MenuItem fx:id="multiplicationMenuItem" mnemonicParsing="false" text="*"/>
+               <MenuItem fx:id="divisionMenuItem" mnemonicParsing="false" text="/"/>
+            </items>
+         </MenuButton>
       </VBox>
       <TextField fx:id="originField" prefWidth="100.0">
          <HBox.margin>

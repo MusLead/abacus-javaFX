@@ -6,8 +6,6 @@ import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -103,17 +101,7 @@ public class App extends Application {
         divisionMenuItem.setOnAction(e -> optMenuButton.setText(divisionMenuItem.getText()));
 
     }
-
-    /**
-     *
-     * @param operation
-     * @param optMenuButton
-     * @param originField
-     * @param boundField
-     * @param origin
-     * @param bound
-     * @return value whether bound, origin, and operator has value
-     */
+    
     public void setStandardInputControl( char operation, MenuButton optMenuButton,
                                          TextField originField, TextField boundField,
                                          int origin, int bound )

@@ -2,18 +2,12 @@ package de.uniks.abacus;
 
 import javafx.scene.control.*;
 
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.junit.Test;
 
 import org.testfx.framework.junit.ApplicationTest;
 
-import java.util.Random;
-
 import static org.junit.Assert.*;
-import static org.testfx.assertions.api.Assertions.*;
 
 public class AppTest extends ApplicationTest
 {

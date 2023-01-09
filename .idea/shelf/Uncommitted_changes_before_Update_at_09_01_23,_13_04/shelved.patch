@@ -1,0 +1,116 @@
+Index: src/test/java/de/uniks/abacus/AppTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package de.uniks.abacus;\n\nimport javafx.scene.control.*;\n\nimport javafx.scene.layout.HBox;\nimport javafx.scene.layout.VBox;\nimport javafx.scene.text.Text;\nimport javafx.stage.Stage;\nimport org.junit.Test;\n\nimport org.testfx.framework.junit.ApplicationTest;\n\nimport java.util.Random;\n\nimport static org.junit.Assert.*;\nimport static org.testfx.assertions.api.Assertions.*;\n\npublic class AppTest extends ApplicationTest\n{\n    private Stage stage;\n\n    @Override\n    public void start(Stage stage) {\n        this.stage = stage;\n        App app = new App();\n        app.start(stage);\n    }\n\n    @Test\n    public void changeView() {\n\n        final String startTitle = \"PMon - Main Menu\";\n        final String battleTitle = \"PMon - Encounter\";\n\n        //• Initialen Fenstertitel prüfen\n        assertEquals(startTitle,stage.getTitle());\n\n        //• Spielernamen „Alice“ in das dafür vorgesehenen Eingabefeld eingeben.\n        clickOn(\"#nameInput\");\n        final String name = \"Alice\";\n        write(name);\n        TextField userName = lookup(\"#nameInput\").queryAs(TextField.class);\n        assertEquals(name, userName.getText());\n\n        //• Start-Button klicken, um ein Encounter zu starten\n        clickOn(\"#startButton\");\n\n        //• Neuen Fenstertitel prüfen\n        assertEquals(battleTitle,stage.getTitle());\n\n        //• Leave-Button klicken\n        clickOn(\"#leaveButton\");\n\n        //• Fenstertitel erneut prüfen\n        assertEquals(startTitle,stage.getTitle());\n\n        //• Prüfen, dass das Eingabefeld für den Spielernamen leer ist\n        userName = lookup(\"#nameInput\").queryAs(TextField.class);\n        assertEquals(\"\", userName.getText());\n    }\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/de/uniks/abacus/AppTest.java b/src/test/java/de/uniks/abacus/AppTest.java
+--- a/src/test/java/de/uniks/abacus/AppTest.java	(revision 355661b1c6dfced5ec7492b1da31472132cacb38)
++++ b/src/test/java/de/uniks/abacus/AppTest.java	(date 1673265784868)
+@@ -2,18 +2,12 @@
+ 
+ import javafx.scene.control.*;
+ 
+-import javafx.scene.layout.HBox;
+-import javafx.scene.layout.VBox;
+-import javafx.scene.text.Text;
+ import javafx.stage.Stage;
+ import org.junit.Test;
+ 
+ import org.testfx.framework.junit.ApplicationTest;
+ 
+-import java.util.Random;
+-
+ import static org.junit.Assert.*;
+-import static org.testfx.assertions.api.Assertions.*;
+ 
+ public class AppTest extends ApplicationTest
+ {
+Index: src/main/resources/de/uniks/abacus/views/OptionsPanel.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<?import javafx.geometry.Insets?>\n<?import javafx.scene.control.Button?>\n<?import javafx.scene.control.MenuButton?>\n<?import javafx.scene.control.MenuItem?>\n<?import javafx.scene.control.TextField?>\n<?import javafx.scene.layout.HBox?>\n<?import javafx.scene.layout.VBox?>\n<?import javafx.scene.text.Text?>\n\n<VBox maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\" minWidth=\"-Infinity\" prefHeight=\"400.0\" prefWidth=\"600.0\" xmlns=\"http://javafx.com/javafx/19\" xmlns:fx=\"http://javafx.com/fxml/1\">\n   <HBox alignment=\"BOTTOM_LEFT\" prefHeight=\"100.0\" prefWidth=\"200.0\">\n      <VBox alignment=\"BOTTOM_CENTER\" prefHeight=\"86.0\" prefWidth=\"304.0\">\n         <Text strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Operation\" />\n      </VBox>\n      <VBox alignment=\"BOTTOM_CENTER\" maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minWidth=\"-Infinity\" prefHeight=\"86.0\" prefWidth=\"120.0\">\n         <children>\n            <Text strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Range of Number\" />\n         </children>\n      </VBox>\n   </HBox>\n   <HBox alignment=\"CENTER\" prefHeight=\"89.0\" prefWidth=\"600.0\">\n      <VBox.margin>\n         <Insets />\n      </VBox.margin>\n      <padding>\n         <Insets left=\"20.0\" right=\"20.0\" />\n      </padding>\n      <VBox alignment=\"CENTER\" prefHeight=\"200.0\" prefWidth=\"100.0\">\n         <children>\n            <MenuButton fx:id=\"optMenuButton\" mnemonicParsing=\"false\" text=\"opt\">\n               <items>\n                  <MenuItem fx:id=\"plusMenuItem\" mnemonicParsing=\"false\" text=\"+\" />\n                  <MenuItem fx:id=\"minusMenuItem\" mnemonicParsing=\"false\" text=\"-\" />\n                  <MenuItem fx:id=\"multiplicationMenuItem\" mnemonicParsing=\"false\" text=\"*\" />\n                  <MenuItem fx:id=\"divisionMenuItem\" mnemonicParsing=\"false\" text=\"/\" />\n               </items>\n            </MenuButton>\n         </children>\n      </VBox>\n      <TextField fx:id=\"originField\" prefWidth=\"100.0\">\n         <HBox.margin>\n            <Insets left=\"20.0\" right=\"20.0\" />\n         </HBox.margin></TextField>\n      <Text strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"to\" />\n      <TextField fx:id=\"boundField\" prefWidth=\"100.0\">\n         <HBox.margin>\n            <Insets left=\"20.0\" right=\"20.0\" />\n         </HBox.margin></TextField>\n   </HBox>\n   <HBox alignment=\"CENTER\" prefHeight=\"98.0\" prefWidth=\"600.0\" spacing=\"100.0\">\n      <Button fx:id=\"mainMenuButton\" mnemonicParsing=\"false\" text=\"Back to Main Menu\" />\n      <Button fx:id=\"overViewButton\" mnemonicParsing=\"false\" text=\"Back to Player Overview\" />\n      <Button fx:id=\"continueButton\" mnemonicParsing=\"false\" text=\"Continue\" />\n   </HBox>\n</VBox>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/de/uniks/abacus/views/OptionsPanel.fxml b/src/main/resources/de/uniks/abacus/views/OptionsPanel.fxml
+--- a/src/main/resources/de/uniks/abacus/views/OptionsPanel.fxml	(revision 355661b1c6dfced5ec7492b1da31472132cacb38)
++++ b/src/main/resources/de/uniks/abacus/views/OptionsPanel.fxml	(date 1673265812292)
+@@ -14,10 +14,9 @@
+       <VBox alignment="BOTTOM_CENTER" prefHeight="86.0" prefWidth="304.0">
+          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Operation" />
+       </VBox>
+-      <VBox alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="86.0" prefWidth="120.0">
+-         <children>
+-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Range of Number" />
+-         </children>
++      <VBox alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="86.0"
++            prefWidth="120.0">
++         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Range of Number"/>
+       </VBox>
+    </HBox>
+    <HBox alignment="CENTER" prefHeight="89.0" prefWidth="600.0">
+@@ -28,16 +27,14 @@
+          <Insets left="20.0" right="20.0" />
+       </padding>
+       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+-         <children>
+-            <MenuButton fx:id="optMenuButton" mnemonicParsing="false" text="opt">
+-               <items>
+-                  <MenuItem fx:id="plusMenuItem" mnemonicParsing="false" text="+" />
+-                  <MenuItem fx:id="minusMenuItem" mnemonicParsing="false" text="-" />
+-                  <MenuItem fx:id="multiplicationMenuItem" mnemonicParsing="false" text="*" />
+-                  <MenuItem fx:id="divisionMenuItem" mnemonicParsing="false" text="/" />
+-               </items>
+-            </MenuButton>
+-         </children>
++         <MenuButton fx:id="optMenuButton" mnemonicParsing="false" text="opt">
++            <items>
++               <MenuItem fx:id="plusMenuItem" mnemonicParsing="false" text="+"/>
++               <MenuItem fx:id="minusMenuItem" mnemonicParsing="false" text="-"/>
++               <MenuItem fx:id="multiplicationMenuItem" mnemonicParsing="false" text="*"/>
++               <MenuItem fx:id="divisionMenuItem" mnemonicParsing="false" text="/"/>
++            </items>
++         </MenuButton>
+       </VBox>
+       <TextField fx:id="originField" prefWidth="100.0">
+          <HBox.margin>
+Index: src/main/java/de/uniks/abacus/App.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package de.uniks.abacus;\n\nimport de.uniks.abacus.controller.*;\nimport de.uniks.abacus.model.*;\nimport javafx.application.Application;\nimport javafx.beans.value.ChangeListener;\nimport javafx.scene.Scene;\nimport javafx.scene.control.*;\nimport javafx.scene.layout.VBox;\nimport javafx.scene.text.Text;\nimport javafx.stage.Modality;\nimport javafx.stage.Stage;\n\nimport java.io.IOException;\nimport java.util.*;\n\nimport static de.uniks.abacus.Constant.*;\nimport static de.uniks.abacus.model.AppService.*;\n\npublic class App extends Application {\n    private Stage stage;\n    private Controller controller;\n    private int origin;\n    private int bound;\n    private char operation;\n    private final AppService appService = new AppService();\n    private final Game coreData = appService.load();\n    Player currentPlayer = null;\n\n    public Game getCoreData() {\n        return coreData;\n    }\n\n    @Override\n    public void start(Stage primaryStage)\n    {\n        this.stage = primaryStage;\n        primaryStage.setScene(new Scene(new Label(\"Loading...\")));\n        primaryStage.setTitle(\"Abacus\");\n\n        show(new HomepageController(this));\n        primaryStage.show();\n    }\n\n    @Override\n    public void stop() throws Exception\n    {\n        if(currentPlayer != null){\n            int indexHistory = currentPlayer.getHistories().size() - 1;\n            History currentHistory = currentPlayer.getHistories().get(indexHistory);\n            String currentTime = currentHistory.getTime() + currentTimeFinish();\n            currentHistory.setTime(currentTime);\n        }\n        appService.save(coreData);\n        controller.destroy();\n    }\n\n    public void show( Controller controller)\n    {\n        controller.init();\n        try\n        {\n            Scene scene = stage.getScene();\n            scene.setRoot(controller.render());\n            //https://youtu.be/tq_0im9qc6E KeyboardListener Tutorial\n            scene.setOnKeyPressed(controller::keyboardListener);\n\t\t\t//https://stackoverflow.com/questions/13986475/automatically-resize-stage-if-content-is-changed\n            stage.sizeToScene();\n        }\n        catch (IOException ex)\n        {\n            ex.printStackTrace();\n            return;\n        }\n\n        /*\n         * delete the old controller! change to the new one!\n         * */\n        if (this.controller != null)\n        {\n            this.controller.destroy();\n        }\n        this.controller = controller;\n        stage.setTitle(controller.getTitle());\n    }\n\n    public void menuItemsSetOnAction( MenuButton optMenuButton )\n    {\n        if(optMenuButton == null){\n            throw new NullPointerException(\"optionMenuButton not found\");\n        }\n        final MenuItem plusMenuItem = optMenuButton.getItems().get(0);\n        final MenuItem minusMenuItem = optMenuButton.getItems().get(1);\n        final MenuItem multiplicationMenuItem = optMenuButton.getItems().get(2);\n        final MenuItem divisionMenuItem = optMenuButton.getItems().get(3);\n\n        plusMenuItem.setOnAction(e -> optMenuButton.setText(plusMenuItem.getText()));\n\n        minusMenuItem.setOnAction(e -> optMenuButton.setText(minusMenuItem.getText()));\n\n        multiplicationMenuItem.setOnAction(e -> optMenuButton.setText(multiplicationMenuItem.getText()));\n\n        divisionMenuItem.setOnAction(e -> optMenuButton.setText(divisionMenuItem.getText()));\n\n    }\n\n    /**\n     *\n     * @param operation\n     * @param optMenuButton\n     * @param originField\n     * @param boundField\n     * @param origin\n     * @param bound\n     * @return value whether bound, origin, and operator has value\n     */\n    public void setStandardInputControl( char operation, MenuButton optMenuButton,\n                                         TextField originField, TextField boundField,\n                                         int origin, int bound )\n    {\n        if(bound != 0 || bound > origin ) {\n            this.origin = origin;\n            this.bound = bound;\n            this.operation = operation;\n        }\n        setStandardInputControlDefault(optMenuButton,originField,boundField);\n    }\n\n    /**\n     * this function show a default value if the bound is 0 and the origin also 0\n     * otherwise, it will give a value that has been saved by previous operation\n     * @param optMenuButton Operation button\n     * @param originField under bound value for random\n     * @param boundField upper bound value for random\n     */\n    public void setStandardInputControlDefault(MenuButton optMenuButton,\n                                         TextField originField, TextField boundField)\n    {\n        if(this.bound == 0 && this.origin == 0){\n            //if the bound and origin still 0 set default value.\n            // by default origin = 0\n            this.bound = 10000;\n            this.operation = '+';\n        }\n        originField.setText(String.valueOf(this.origin));\n        boundField.setText(String.valueOf(this.bound));\n        optMenuButton.setText(String.valueOf(this.operation));\n\n    }\n\n    public void toCalculation( Player player, TextField originField, TextField boundField, MenuButton optMenuButton )\n    {\n        this.currentPlayer = player;\n        Random random = new Random();\n        try {\n            int origin = Integer.parseInt(originField.getText());\n            int bound = Integer.parseInt(boundField.getText());\n            int firstValue = random.nextInt(origin, bound);\n            int secondValue = random.nextInt(origin, bound);\n            char operation = optMenuButton.getText().toCharArray()[0];\n            this.operation = operation;\n            if (operation == '/' || operation == '*') {\n                Result result = null;\n                switch (operation){\n                    case '/'-> result = appService.checkDivision(origin, bound, firstValue, secondValue);\n                    case '*'-> result = appService.checkMultiplicationLimit(origin, bound, firstValue, secondValue);\n                }\n                if (result.getResultStatus().contains(TEMP_STATUS)) {\n                    firstValue = result.getFirstVal();\n                    secondValue = result.getSecondVal();\n                }\n            }\n            show(new CalculationController(this, player, firstValue, operation, secondValue, origin, bound));\n        } catch (Exception e){\n            showDialog(\"ERROR\",e.getMessage());\n        }\n    }\n\n    public void setLimitOriginBound( TextField originField, TextField boundField,\n                                     List<ChangeListener<Number>> listenerList)\n    {\n        //https://stackoverflow.com/questions/22714268/how-to-limit-the-amount-of-characters-a-javafx-textfield\n        ChangeListener<Number> originListener = ( observable, oldValue, newValue ) -> {\n            if (newValue.intValue() > oldValue.intValue()) {\n                // Check if the new character is greater than LIMIT\n                if (originField.getText().length() >= MAX_INT_LENGTH) {\n                    // if it's MAX_INT_LENGTH (10th) character then just setText to previous one\n                    originField.setText(originField.getText().substring(0, MAX_INT_LENGTH));\n                }\n            }\n        };\n        originField.lengthProperty().addListener(originListener);\n\n        ChangeListener<Number> boundFieldListener = ( observable, oldValue, newValue ) -> {\n            if (newValue.intValue() > oldValue.intValue()) {\n                // Check if the new character is greater than LIMIT\n                if (boundField.getText().length() >= MAX_INT_LENGTH) {\n                    // if it's MAX_INT_LENGTH (10th) character then just setText to previous one\n                    boundField.setText(boundField.getText().substring(0, MAX_INT_LENGTH));\n                }\n            }\n        };\n        boundField.lengthProperty().addListener(boundFieldListener);\n        /*\n        * this listener will be used in another class, if the scene from the class is closed\n        * then delete the listener too!\n        * */\n        listenerList.add(originListener);\n        listenerList.add(boundFieldListener);\n    }\n\n    public void deletePlayer (Player player)\n    {\n        player.setName(null);\n        coreData.withoutPlayers(player);\n    }\n\n    public void updateStageSize()\n    {\n        stage.sizeToScene();\n    }\n\n    public void showDialog(String header, String text)\n    {\n        Alert alert = new Alert(Alert.AlertType.ERROR);\n        alert.setHeaderText(header);\n        alert.setContentText(text);\n        alert.initOwner(stage);\n        alert.initModality(Modality.APPLICATION_MODAL);\n        alert.show();\n    }\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/de/uniks/abacus/App.java b/src/main/java/de/uniks/abacus/App.java
+--- a/src/main/java/de/uniks/abacus/App.java	(revision 355661b1c6dfced5ec7492b1da31472132cacb38)
++++ b/src/main/java/de/uniks/abacus/App.java	(date 1673265678481)
+@@ -6,8 +6,6 @@
+ import javafx.beans.value.ChangeListener;
+ import javafx.scene.Scene;
+ import javafx.scene.control.*;
+-import javafx.scene.layout.VBox;
+-import javafx.scene.text.Text;
+ import javafx.stage.Modality;
+ import javafx.stage.Stage;
+ 
+@@ -103,17 +101,7 @@
+         divisionMenuItem.setOnAction(e -> optMenuButton.setText(divisionMenuItem.getText()));
+ 
+     }
+-
+-    /**
+-     *
+-     * @param operation
+-     * @param optMenuButton
+-     * @param originField
+-     * @param boundField
+-     * @param origin
+-     * @param bound
+-     * @return value whether bound, origin, and operator has value
+-     */
++    
+     public void setStandardInputControl( char operation, MenuButton optMenuButton,
+                                          TextField originField, TextField boundField,
+                                          int origin, int bound )
