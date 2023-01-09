@@ -100,6 +100,7 @@ public class HomepageController implements Controller {
                         if (playerSlot instanceof HBox playerSlotHBox) {
                             Text text = (Text) playerSlotHBox.getChildren().get(0);
                             // find Text with e.getOldValue()
+                            // WARNING: that is why the name should not be the same!
                             if (e.getOldValue() == text.getText()) {
                                 playerBar.getChildren().remove(playerSlot);
                             }
@@ -148,7 +149,7 @@ public class HomepageController implements Controller {
 
             app.show(new OptionController(this.app, player));
         } else {
-            //TODO make a warning that the name should not be empty!
+            app.showDialog("Ups..","name input is invalid");
         }
     }
 

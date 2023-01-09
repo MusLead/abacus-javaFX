@@ -2,6 +2,7 @@ package de.uniks.abacus.controller;
 
 import de.uniks.abacus.App;
 import de.uniks.abacus.model.Result;
+import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -28,6 +29,8 @@ public class ResultController implements Controller{
     private final List<Node> resultsSettings = new ArrayList<>();
     private Parent parent;
     private Accordion accordion;
+    private TextField originField, boundField;
+    private final List<ChangeListener<Number>> listenerList = new ArrayList<>();
 
     public ResultController( App app, Result result, int origin, int bound ) {
         this.app = app;
@@ -73,7 +76,7 @@ public class ResultController implements Controller{
         //set default value for the settings!
         try{
             app.menuItemsSetOnAction((MenuButton) resultsSettings.get(0));
-            app.setStandardInputControl(result.getOperation(),
+            app.setStandardInputControl(result.getOperation().toCharArray()[0],
                                         (MenuButton) resultsSettings.get(0),
                                         (TextField) resultsSettings.get(1),
                                         (TextField) resultsSettings.get(2), origin, bound);
@@ -131,7 +134,6 @@ public class ResultController implements Controller{
 
     private void getSettingsNode( Accordion accordion, List<Node> resultsSettings, Parent parent ) {
         MenuButton optMenuButton = null;
-        TextField originField = null, boundField = null;
 
         if(accordion != null){
             TitledPane pane = accordion.getPanes().get(0);
@@ -156,12 +158,15 @@ public class ResultController implements Controller{
         resultsSettings.add(optMenuButton);
         resultsSettings.add(originField);
         resultsSettings.add(boundField);
-        app.setLimitOriginBound(Objects.requireNonNull(originField), Objects.requireNonNull(boundField));
+        app.setLimitOriginBound(Objects.requireNonNull(originField),
+                                Objects.requireNonNull(boundField),
+                                listenerList);
     }
 
     @Override
     public void destroy() {
-
+        originField.lengthProperty().removeListener(listenerList.get(0));
+        boundField.lengthProperty().removeListener(listenerList.get(1));
     }
 
     @Override

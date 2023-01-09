@@ -69,7 +69,6 @@ public class CalculationController implements Controller {
         // Set Start button onAction
         taskText.setText(firstValue + " " + operation + " "+ secondValue + " =");
         continueButton.setOnAction(event -> toResultScene(answerField));
-
         return parent;
     }
 
@@ -86,11 +85,9 @@ public class CalculationController implements Controller {
             }
             app.show(new ResultController(this.app,result, origin, bound));
         } catch(NumberFormatException e){
-            System.out.println("invalid input!");
-            System.err.println("because " + e.getMessage() + " or more than 10 digits");
-            //FIXME ALERT is not showing!
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("The value is invalid!");
+            String line = "invalid input!\n" + "because " + e.getMessage() + " or more than 10 digits";
+            System.err.println(line);
+            app.showDialog("ups...", line);
         }
     }
 

@@ -51,7 +51,7 @@ public class OverviewController implements Controller{
         final Accordion historyAccordion = (Accordion) historyScrollPane.getContent();
 
         if(!IS_DEBUG){
-            //if debug is true, then we want to see the default result of the FXML!)
+            //if debug is true, then we want to see the default result of the FXML!
             historyAccordion.getPanes().clear();
         }
         nameText.setText(player.getName());
@@ -84,7 +84,8 @@ public class OverviewController implements Controller{
                     statusContainer.getChildren().add(text);
                 }
                 statusContainer.setSpacing(15);
-                TitledPane titledPane = new TitledPane(history.getTime(),statusContainer);
+                String title = history.getTime() + " | Correct: " + history.getRightResultTotal() + "  Wrong: " + history.getWrongResultTotal();
+                TitledPane titledPane = new TitledPane(title,statusContainer);
                 historyAccordion.getPanes().add(titledPane);
             }
         }
