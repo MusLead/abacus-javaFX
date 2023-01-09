@@ -15,7 +15,7 @@ import static de.uniks.abacus.Constant.*;
 
 public class AppService {
 
-    final private Random random = new Random();
+    static final private Random random = new Random();
     private int calculate(int firstVal, char operation, int secondVal){
         int resultVal = 0;
         switch (operation) {
@@ -77,7 +77,7 @@ public class AppService {
      * @param secondValue value of the second value
      * @return value of TEMPORARY RETURN!
      */
-    public Result checkDivision( int origin, int upperBound, int firstValue, int secondValue) {
+    public Result checkDivision(int origin, int upperBound, int firstValue, int secondValue) {
 
         int firstValNow = 0, secondValNow = 0;
         //https://stackoverflow.com/questions/65678297/solve-integer-division-in-floating-point-context
@@ -184,10 +184,16 @@ public class AppService {
         try{
             final String yaml = Files.readString(Path.of("data/coreData.yaml"));
             final YamlIdMap idMap = new YamlIdMap(Game.class.getPackageName());
-            return (Game) idMap.decode(yaml);
+            try{
+                return (Game) idMap.decode(yaml);
+            } catch (RuntimeException e) {
+                System.err.println("THE FILE MIGHT BE CORRUPTED");
+                System.err.println(e.getMessage());
+            }
         } catch (IOException e) {
             return new Game();
         }
+        return null;
     }
 
     public static boolean checkName( TextField textField, App app ){
@@ -197,6 +203,25 @@ public class AppService {
             }
         }
         return true;
+    }
+
+    public Result checkMultiplicationLimit(int origin, int bound, int firstValue, int secondValue) {
+        long maxVal = 9;
+        // set maxVal that depend on the MAX_INT_LENGTH
+        for (int i = 0; i < MAX_INT_LENGTH - 1 ; i++) {
+            maxVal = (maxVal * 10) + 9;
+        }
+        // maxVal = 99999... (depend on the length of the MAX_INT_LENGTH
+        long result;
+        do {
+            firstValue = random.nextInt(origin,bound);
+            secondValue = random.nextInt(origin,bound);
+            result = (long) firstValue * secondValue;
+        } while(result > maxVal || result < (-1 * maxVal));
+
+        return new Result().setResultStatus(TEMP_STATUS)
+                .setFirstVal(firstValue).setSecondVal(secondValue);
+
     }
 
 

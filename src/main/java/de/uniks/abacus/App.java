@@ -159,8 +159,12 @@ public class App extends Application {
             int secondValue = random.nextInt(origin, bound);
             char operation = optMenuButton.getText().toCharArray()[0];
             this.operation = operation;
-            if (operation == '/') {
-                Result result = appService.checkDivision(origin, bound, firstValue, secondValue);
+            if (operation == '/' || operation == '*') {
+                Result result = null;
+                switch (operation){
+                    case '/'-> result = appService.checkDivision(origin, bound, firstValue, secondValue);
+                    case '*'-> result = appService.checkMultiplicationLimit(origin, bound, firstValue, secondValue);
+                }
                 if (result.getResultStatus().contains(TEMP_STATUS)) {
                     firstValue = result.getFirstVal();
                     secondValue = result.getSecondVal();

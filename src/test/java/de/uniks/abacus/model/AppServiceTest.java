@@ -1,5 +1,6 @@
 package de.uniks.abacus.model;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static de.uniks.abacus.Constant.*;
@@ -59,5 +60,13 @@ public class AppServiceTest {
             assertEquals(0, (resultTest) % 10);
             assertTrue(result.getFirstVal() > result.getSecondVal()); // test if the firstValue is bigger than secondvalue!
         }
+    }
+
+    @Test
+    public void checkMultiplicationLimit(){
+        AppService appService = new AppService();
+        Result result = appService.checkMultiplicationLimit(0,10000,322323,2332332);
+        System.out.println(result.getFirstVal() * result.getSecondVal());
+        Assertions.assertTrue(result.getFirstVal() * result.getSecondVal() <= 999999999);
     }
 }

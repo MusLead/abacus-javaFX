@@ -2,27 +2,61 @@
   players: 	0
 
 - 0: 	de.uniks.abacus.model.Player
-  histories: 	h
+  histories: 	h 	h1 	h2
   id: 	0
   name: 	Agha
-  results: 	r
+  results: 	r 	r3 	r4
   rightSum: 	0
-  wrongSum: 	1
+  wrongSum: 	3
 
 - h: 	de.uniks.abacus.model.History
   player: 	0
   results: 	r
   rightResultTotal: 	0
-  time: 	"01/09/2023 (02:35:19 - 02:35:22)02:35:46)"
+  time: 	"01/09/2023 (11:38:52 - 11:38:56)11:38:59)"
+  wrongResultTotal: 	1
+
+- h1: 	de.uniks.abacus.model.History
+  player: 	0
+  results: 	r3
+  rightResultTotal: 	0
+  time: 	"01/09/2023 (12:28:45 - 12:30:09)12:30:12)"
+  wrongResultTotal: 	1
+
+- h2: 	de.uniks.abacus.model.History
+  player: 	0
+  results: 	r4
+  rightResultTotal: 	0
+  time: 	"01/09/2023 (12:34:58 - 12:35:27)"
   wrongResultTotal: 	1
 
 - r: 	de.uniks.abacus.model.Result
-  firstVal: 	6832
+  firstVal: 	832
   history: 	h
-  operation: 	"+"
+  operation: 	"/"
   player: 	0
   resultStatus: 	"WRONG, TRY AGAIN!"
-  resultVal: 	222
-  rightVal: 	11497
-  secondVal: 	4665
+  resultVal: 	234234
+  rightVal: 	4
+  secondVal: 	208
+
+- r3: 	de.uniks.abacus.model.Result
+  firstVal: 	1625
+  history: 	h1
+  operation: 	"*"
+  player: 	0
+  resultStatus: 	"WRONG, TRY AGAIN!"
+  resultVal: 	123412322
+  rightVal: 	4511000
+  secondVal: 	2776
+
+- r4: 	de.uniks.abacus.model.Result
+  firstVal: 	6426
+  history: 	h2
+  operation: 	"*"
+  player: 	0
+  resultStatus: 	"WRONG, TRY AGAIN!"
+  resultVal: 	312312312
+  rightVal: 	48317094
+  secondVal: 	7519
 
