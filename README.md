@@ -1,7 +1,7 @@
 # sempoa-javaFX
 
 Message:
-If you want fxml file to FXMLLoader. make sure when creating the folder in resources it writes / -> de/uniks/
+If you want fxml file to FXMLLoader. make sure when creating the folder in resources it writes / -> de/uniks/...
 
 https://stackoverflow.com/questions/35210120/javafx-fxml-api-version-warning
 
