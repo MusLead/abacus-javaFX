@@ -1,17 +1,9 @@
-Message:
-If you want fxml file to FXMLLoader. make sure when creating the folder in resources it writes / -> de/uniks/...
+## Program History and Conclusion
 
-https://stackoverflow.com/questions/35210120/javafx-fxml-api-version-warning
-
-THIS PROJECT: NON-MODULAR
-https://stackoverflow.com/questions/67854139/javafx-warning-unsupported-javafx-configuration-classes-were-loaded-from-unna
-
-https://stackoverflow.com/questions/22166610/how-to-create-a-popup-window-in-javafx
-
-Sequence of desgin a programm:
+Sequence of design a programm:
 1. Visualize how it will work
-2. make a visualization app diagram https://app.diagrams.net/?src=about#G12eUzmjwOSZCG4PPPmYOxSTjumZdBRfDp
-3. make a UML Diagram (How the objects will communicate with each other!) https://app.diagrams.net/?src=about#G1KcfgyaG_7N5_adlyNNHz8oAcCQBFYNRw
+2. [Make a visualization app diagram](WireframesUML/Sempoa UML-class.drawio.png) 
+3. [Make a UML Diagram (How the objects will communicate with each other!)](WireframesUML/Sempoa Wireframes Diagram.drawio.png) 
 
 Sequence of Programming:
 1. Create a project with gradle and creating a package name
@@ -29,5 +21,22 @@ Sequence of Programming:
 13. Test the Application (make sure also scrollPane also included!)
 14. Evaluate the program
 
+## My Notes
+Message:
+If you want fxml file to FXMLLoader. make sure when creating the folder in resources it writes / -> de/uniks/...
+
+Some Notes for the future:
+* FXML Warning and reasons: https://stackoverflow.com/questions/35210120/javafx-fxml-api-version-warning
+
+
+* WARNING: Unsupported JavaFX configuration: classes were loaded from 'unnamed module @28bcaccc'.
+  _THIS PROJECT: NON-MODULAR_
+  https://stackoverflow.com/questions/67854139/javafx-warning-unsupported-javafx-configuration-classes-were-loaded-from-unna
+
+* How to make a dialog (information or alert)
+  https://stackoverflow.com/questions/22166610/how-to-create-a-popup-window-in-javafx
+
+
+## TODO
 TODO:
 1. MAKE A TEST APP CIRCULATION! ERROR!
