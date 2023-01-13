@@ -3,7 +3,7 @@ package de.uniks.abacus;
 import javafx.scene.control.*;
 
 import javafx.stage.Stage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.testfx.framework.junit.ApplicationTest;
 

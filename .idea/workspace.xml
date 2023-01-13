@@ -100,7 +100,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pathVariables",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -218,7 +218,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="sempoa-javaFX [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="sempoa-javaFX [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -229,7 +229,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="build" />
+            <option value="test" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -248,19 +248,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.sempoa-javaFX [test]" />
       <item itemvalue="Gradle.AppServiceTest.checkMultiplicationLimit" />
-      <item itemvalue="Gradle.sempoa-javaFX [build]" />
       <item itemvalue="Gradle.AppTest" />
       <item itemvalue="Gradle.AppTest.changeView" />
       <item itemvalue="Java Scratch.Scratch" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.sempoa-javaFX [test]" />
+        <item itemvalue="Gradle.AppTest" />
         <item itemvalue="Gradle.AppTest.changeView" />
         <item itemvalue="Gradle.AppServiceTest.checkMultiplicationLimit" />
-        <item itemvalue="Gradle.AppTest" />
         <item itemvalue="Java Scratch.Scratch" />
-        <item itemvalue="Gradle.sempoa-javaFX [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -277,7 +277,8 @@
       <workItem from="1673197260654" duration="6680000" />
       <workItem from="1673204322269" duration="21581000" />
       <workItem from="1673226359284" duration="4285000" />
-      <workItem from="1673254977294" duration="11253000" />
+      <workItem from="1673254977294" duration="11298000" />
+      <workItem from="1673541848220" duration="3159000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1672879844809</created>
@@ -496,7 +497,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673266119755</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="docs: add some documentation">
+      <created>1673267328354</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1673267328354</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -530,7 +538,8 @@
     <MESSAGE value="refactor: update, operation to string" />
     <MESSAGE value="docs: update README.md" />
     <MESSAGE value="refactor: set Limit multiplication" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: set Limit multiplication" />
+    <MESSAGE value="docs: add some documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: add some documentation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -573,5 +582,9 @@
         <PinnedItemInfo parentTag="de.uniks.abacus.model.Player" memberName="histories" />
       </pinned-members>
     </pin-to-top-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
