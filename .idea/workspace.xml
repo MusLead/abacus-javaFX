@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="976bb249-2aba-4e13-b7bf-222b4e3fe8d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/coreData.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/data/coreData.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/uniks/abacus/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/uniks/abacus/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,34 +85,34 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "/Users/aslam/Documents/GitHub/sempoa-javaFX/src",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/aslam/Documents/GitHub/sempoa-javaFX/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "GitStage.ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
+  &quot;keyToStringList&quot;: {
+    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="de.uniks.abacus.model" />
@@ -256,8 +258,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.sempoa-javaFX [test]" />
         <item itemvalue="Gradle.AppTest" />
+        <item itemvalue="Gradle.sempoa-javaFX [test]" />
         <item itemvalue="Gradle.AppTest.changeView" />
         <item itemvalue="Gradle.AppServiceTest.checkMultiplicationLimit" />
         <item itemvalue="Java Scratch.Scratch" />
@@ -278,7 +280,9 @@
       <workItem from="1673204322269" duration="21581000" />
       <workItem from="1673226359284" duration="4285000" />
       <workItem from="1673254977294" duration="11298000" />
-      <workItem from="1673541848220" duration="3159000" />
+      <workItem from="1673541848220" duration="5773000" />
+      <workItem from="1673814109738" duration="599000" />
+      <workItem from="1673819609450" duration="3008000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1672879844809</created>
@@ -504,7 +508,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673267328354</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="docs: problem">
+      <created>1673581122667</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1673581122667</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -539,7 +550,8 @@
     <MESSAGE value="docs: update README.md" />
     <MESSAGE value="refactor: set Limit multiplication" />
     <MESSAGE value="docs: add some documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: add some documentation" />
+    <MESSAGE value="docs: problem" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: problem" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -551,21 +563,6 @@
           <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/HomepageController.java</url>
-          <line>151</line>
-          <option name="timeStamp" value="70" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/HomepageController.java</url>
-          <line>143</line>
-          <option name="timeStamp" value="73" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/App.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="82" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/App.java</url>
           <line>153</line>
           <option name="timeStamp" value="88" />
@@ -574,6 +571,36 @@
           <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/App.java</url>
           <line>155</line>
           <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/de/uniks/abacus/AppTest.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/HomepageController.java</url>
+          <line>131</line>
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/HomepageController.java</url>
+          <line>128</line>
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/HomepageController.java</url>
+          <line>123</line>
+          <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/HomepageController.java</url>
+          <line>127</line>
+          <option name="timeStamp" value="112" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/HomepageController.java</url>
+          <line>134</line>
+          <option name="timeStamp" value="113" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

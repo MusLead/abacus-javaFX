@@ -40,4 +40,3 @@ Some Notes for the future:
 ## TODO
 TODO:
 1. MAKE A TEST APP CIRCULATION! ERROR!
-2. after a player is being saved and added to the code it will the screen will be deactivated!
