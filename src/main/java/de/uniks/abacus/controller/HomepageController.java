@@ -87,6 +87,7 @@ public class HomepageController implements Controller {
     private void addPlayerSlot( Parent parent, VBox playerBar, int id,
                                 Player player, ScrollPane homepageScrollPane, HBox mainScene
     ) throws IOException {
+
         PropertyChangeListener playerListener = e -> {
             /*
              * In case we are in the Homepage, and we want to delete
@@ -107,7 +108,7 @@ public class HomepageController implements Controller {
                         }
                     }
                 } catch (ConcurrentModificationException exception) {
-                    /* Reason:
+                    /* Reason of the Exception:
                     * it is not generally permissible for one thread to modify a Collection
                     * while another thread is iterating over it. In general, the results of
                     * the iteration are undefined under these circumstances. Some Iterator
@@ -121,9 +122,13 @@ public class HomepageController implements Controller {
                     //System.err.println("IGNORE: " + exception.getCause());
                 }
                 if(mainScene.getChildren().size() < 2 &&
-                        app.getCoreData().getPlayers().size() != 0) {
+                        (app.getCoreData().getPlayers().size() != 0 ||
+                                app.getCoreData().getPlayers().get(0).getName() == null)) {
+                    //if on the screen only a children from HBox and there is at least a player
                     mainScene.getChildren().add(homepageScrollPane);
-                } else {
+                } else if(app.getCoreData().getPlayers().size() == 0 ||
+                        app.getCoreData().getPlayers().get(0).getName() == null) {
+                    //only if there is no player, then remove the pane
                     mainScene.getChildren().remove(homepageScrollPane);
                 }
             }

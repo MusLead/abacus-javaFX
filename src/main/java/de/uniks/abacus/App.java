@@ -217,6 +217,4 @@ public class App extends Application {
         alert.initModality(Modality.APPLICATION_MODAL);
         alert.show();
     }
-
-
 }
