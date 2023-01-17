@@ -40,3 +40,5 @@ Some Notes for the future:
 ## TODO
 TODO:
 1. MAKE A TEST APP CIRCULATION! ERROR!
+2. I want when the file corrupted while loading the file
+  it could give an alert dialog that this app cannot be loaded!
