@@ -283,7 +283,7 @@
       <workItem from="1673541848220" duration="5773000" />
       <workItem from="1673814109738" duration="599000" />
       <workItem from="1673819609450" duration="3249000" />
-      <workItem from="1673867750914" duration="4973000" />
+      <workItem from="1673867750914" duration="5719000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1672879844809</created>
@@ -530,7 +530,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673822826310</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="docs: add some TODO">
+      <created>1673953702204</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1673953702204</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,7 +575,8 @@
     <MESSAGE value="docs: problem" />
     <MESSAGE value="docs: gitnore edit" />
     <MESSAGE value="refactor: edit homepage panes if no players" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: edit homepage panes if no players" />
+    <MESSAGE value="docs: add some TODO" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: add some TODO" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
