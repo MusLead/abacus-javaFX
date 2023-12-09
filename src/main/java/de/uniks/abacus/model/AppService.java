@@ -195,7 +195,7 @@ public class AppService {
     }
 
     public static boolean checkName( TextField textField, App app ){
-        for (Player player : app.getCoreData().getPlayers()) {
+        for (Player player : app.getPlayersList().getPlayers()) {
             if(textField.getText().equals(player.getName())){
                 return false;
             }

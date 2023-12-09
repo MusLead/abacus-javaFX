@@ -66,7 +66,7 @@ public class HomepageController implements Controller {
         // Set Start button onAction
         startButton.setOnAction(event -> toControlPanel(userName));
 
-        if( app.getCoreData().getPlayers().isEmpty() && !IS_DEBUG){
+        if( app.getPlayersList().getPlayers().isEmpty() && !IS_DEBUG){
             mainScene.getChildren().remove(homepageScrollPane);
         }
 
@@ -116,10 +116,10 @@ public class HomepageController implements Controller {
                  * lists of players could be hidden if there is no player, and otherwise)
                  */
                 if(mainScene.getChildren().size() < 2 && // meaning: the list of players is not being set
-                        !app.getCoreData().getPlayers().isEmpty() ){
+                        !app.getPlayersList().getPlayers().isEmpty() ){
                     //if on the screen only a children from HBox and there is at least a player
                     mainScene.getChildren().add(homepageScrollPane);
-                } else if(app.getCoreData().getPlayers().isEmpty() ) {
+                } else if(app.getPlayersList().getPlayers().isEmpty() ) {
                     //only if there is no player, then remove the pane
                     mainScene.getChildren().remove(homepageScrollPane);
                 }
@@ -128,14 +128,14 @@ public class HomepageController implements Controller {
             parent.autosize();
             app.updateStageSize();
         };
-        Game thisGame = app.getCoreData();
+        Game thisGame = app.getPlayersList();
         thisGame.listeners().addPropertyChangeListener(Game.PROPERTY_PLAYERS, gameListener);
 
-        for (Player player: app.getCoreData().getPlayers()) {
+        for (Player player: app.getPlayersList().getPlayers()) {
             addPlayerSlot(playerBar, player);
         }
 
-        creatExamplePlayersBar(playerBar);
+        // creatExamplePlayersBar(playerBar); //DEBUG
 
         return parent;
     }
@@ -158,7 +158,8 @@ public class HomepageController implements Controller {
             //if the text NOT EMPTY then do this!
             Player player = new Player()
                     .setName(userName.getText())
-                    .withHistories();
+                    .withHistories()
+                    .setGame(app.getPlayersList());
 
             app.show(new OptionController(this.app, player));
         } else {
@@ -168,7 +169,7 @@ public class HomepageController implements Controller {
 
     @Override
     public void destroy() {
-        app.getCoreData().listeners().removePropertyChangeListener(Game.PROPERTY_PLAYERS, gameListener);
+        app.getPlayersList().listeners().removePropertyChangeListener(Game.PROPERTY_PLAYERS, gameListener);
     }
 
     @Override

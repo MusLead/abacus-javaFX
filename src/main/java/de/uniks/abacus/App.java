@@ -22,10 +22,14 @@ public class App extends Application {
     private int bound;
     private char operation;
     private final AppService appService = new AppService();
-    private final Game coreData = appService.load();
+    private final Game coreData;
     Player currentPlayer = null;
 
-    public Game getCoreData() {
+    public App( ) {
+        coreData = appService.load();
+    }
+
+    public Game getPlayersList() {
         return coreData;
     }
 
