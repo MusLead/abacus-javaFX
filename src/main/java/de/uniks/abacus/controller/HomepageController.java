@@ -19,6 +19,7 @@ import java.util.ConcurrentModificationException;
 import java.util.Objects;
 
 import static de.uniks.abacus.Constant.*;
+import static de.uniks.abacus.model.AppService.*;
 import static de.uniks.abacus.model.AppService.checkName;
 
 public class HomepageController implements Controller {
@@ -156,13 +157,11 @@ public class HomepageController implements Controller {
     private void toControlPanel( TextField userName ) {
         if( !userName.getText().isEmpty() && checkName(userName, app)){
             //if the text NOT EMPTY then do this!
-            Player player = new Player()
-                    .setName(userName.getText())
-                    .withHistories();
+            Player player = createPlayer(userName, app.getCoreData());
 
             app.show(new OptionController(this.app, player));
         } else {
-            app.showDialog("Ups..","name input is invalid");
+            app.showDialog("Ups..","Name input is invalid");
         }
     }
 

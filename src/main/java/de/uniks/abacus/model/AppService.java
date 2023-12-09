@@ -203,6 +203,14 @@ public class AppService {
         return true;
     }
 
+    public static Player createPlayer( TextField userName, Game game ) {
+        Player player = new Player()
+                .setName(userName.getText())
+                .withHistories()
+                .setGame(game);
+        return player;
+    }
+
     public Result checkMultiplicationLimit(int origin, int bound, int firstValue, int secondValue) {
         long maxVal = 9;
         // set maxVal that depend on the MAX_INT_LENGTH
