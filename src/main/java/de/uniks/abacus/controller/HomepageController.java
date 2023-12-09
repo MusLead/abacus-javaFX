@@ -179,6 +179,7 @@ public class HomepageController implements Controller {
         }
     }
 
+    @SuppressWarnings("unused")
     public void creatExamplePlayersBar( VBox playerBar ) throws IOException {
         if(IS_DEBUG){
             for (int i = 0; i < 20; i++) {

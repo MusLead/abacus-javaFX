@@ -131,7 +131,7 @@
       <recent name="de.uniks.abacus" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="de.uniks.abacus.Main" />
       <module name="sempoaJavaFX.main" />
@@ -146,139 +146,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;de.uniks.abacus.model.AppServiceTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="AppServiceTest.checkDivisionTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;de.uniks.abacus.model.AppServiceTest.checkDivisionTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="AppTest (2)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;AppTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="sempoaJavaFX [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="dependencies" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="sempoaJavaFX [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="run" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="Gradle.AppServiceTest.checkDivisionTest" />
-      <item itemvalue="Gradle.sempoaJavaFX [dependencies]" />
-      <item itemvalue="Gradle.AppTest (2)" />
-      <item itemvalue="Gradle.sempoaJavaFX [run]" />
-      <item itemvalue="Gradle.AppServiceTest" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Gradle.AppServiceTest" />
-        <item itemvalue="Gradle.sempoaJavaFX [run]" />
-        <item itemvalue="Gradle.AppTest (2)" />
-        <item itemvalue="Gradle.sempoaJavaFX [dependencies]" />
-        <item itemvalue="Gradle.AppServiceTest.checkDivisionTest" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -301,7 +168,7 @@
       <workItem from="1702086657262" duration="60000" />
       <workItem from="1702086724920" duration="1400000" />
       <workItem from="1702088691568" duration="3604000" />
-      <workItem from="1702092511924" duration="4810000" />
+      <workItem from="1702092511924" duration="7474000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1672879844809</created>
@@ -571,7 +438,39 @@
       <option name="project" value="LOCAL" />
       <updated>1702084345837</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="fix: update Test files&#10;&#10;dependencies and imports are the one that makes this test not working properly">
+      <option name="closed" value="true" />
+      <created>1702130346179</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1702130346179</updated>
+    </task>
+    <task id="LOCAL-00040" summary="fix: games systems&#10;&#10;fix some lists the system of overview players and how the results should be calculated">
+      <option name="closed" value="true" />
+      <created>1702130821834</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1702130821834</updated>
+    </task>
+    <task id="LOCAL-00041" summary="fix: games systems&#10;&#10;fix some lists the system of overview players and how the results should be calculated">
+      <option name="closed" value="true" />
+      <created>1702130830926</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1702130830926</updated>
+    </task>
+    <task id="LOCAL-00042" summary="reafactor: add module-info">
+      <option name="closed" value="true" />
+      <created>1702130879103</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1702130879103</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -589,8 +488,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: add some services" />
-    <MESSAGE value="feat: create constant" />
     <MESSAGE value="refactor: add association between player and result" />
     <MESSAGE value="refactor: add and revise AooService" />
     <MESSAGE value="feat:  javaFx Gradle" />
@@ -612,7 +509,11 @@
     <MESSAGE value="docs: add some TODO" />
     <MESSAGE value="refactor: update PROGRAMMING.md" />
     <MESSAGE value="refactor: update FXML files&#10;&#10;to avoid warning from execution" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: update FXML files&#10;&#10;to avoid warning from execution" />
+    <MESSAGE value="fix: update Test files&#10;&#10;dependencies and imports are the one that makes this test not working properly" />
+    <MESSAGE value="fix: games systems&#10;&#10;fix some lists the system of overview players and how the results should be calculated" />
+    <MESSAGE value="reafactor: add module-info" />
+    <MESSAGE value="fix: player database" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: player database" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -625,28 +526,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/App.java</url>
-          <line>153</line>
+          <line>157</line>
           <option name="timeStamp" value="88" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/App.java</url>
-          <line>155</line>
-          <option name="timeStamp" value="89" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/HomepageController.java</url>
-          <line>128</line>
-          <option name="timeStamp" value="110" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/HomepageController.java</url>
-          <line>123</line>
-          <option name="timeStamp" value="111" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/HomepageController.java</url>
-          <line>127</line>
-          <option name="timeStamp" value="112" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/model/AppService.java</url>
@@ -665,9 +546,24 @@
           <option name="timeStamp" value="133" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/AppTest.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="136" />
+          <url>file://$PROJECT_DIR$/src/test/java/de/uniks/abacus/model/AppServiceTest.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="137" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/HomepageController.java</url>
+          <line>133</line>
+          <option name="timeStamp" value="138" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/ResultController.java</url>
+          <line>132</line>
+          <option name="timeStamp" value="139" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/model/AppService.java</url>
+          <line>139</line>
+          <option name="timeStamp" value="140" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

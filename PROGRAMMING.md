@@ -36,7 +36,13 @@ Some Notes for the future:
 * How to make a dialog (information or alert)
   https://stackoverflow.com/questions/22166610/how-to-create-a-popup-window-in-javafx
 
+09.12.2023
+There has been a problem with the test.
+The turn around is on the dependencies that we are using.
+The JavaFX and JUnit are not all of them sync.
+So you have to make sure to use JUnit that also supports JavaFX
 
+the import is also important! make sure using the import that the dependencies supports.
 ## TODO
 TODO:
 1. MAKE A TEST APP CIRCULATION! ERROR!
