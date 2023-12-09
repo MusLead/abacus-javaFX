@@ -12,13 +12,10 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 
 import java.beans.PropertyChangeListener;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
-import java.util.List;
 import java.util.Objects;
 
 import static de.uniks.abacus.Constant.*;
@@ -30,8 +27,6 @@ public class HomepageController implements Controller {
     private TextField userName;
 
     PropertyChangeListener gameListener;
-
-    private final List<PropertyChangeListener> playerListnerList = new ArrayList<>();
 
     public HomepageController( App app ) {
         this.app = app;
@@ -85,8 +80,8 @@ public class HomepageController implements Controller {
                 try {
                     // Get the Children of the VBox
                     for (Node playerSlot : playerBar.getChildren()) {
-                        // if the Node has HBox then continue to the next code!
-                        if (playerSlot instanceof HBox playerSlotHBox) {
+                        // if the Node has HBox, then continue to the next code!
+                        if (playerSlot instanceof HBox) {
 
                             // find Text with e.getOldValue()
                             // WARNING: that is why the name should not be the same!
@@ -100,12 +95,16 @@ public class HomepageController implements Controller {
                 } catch (ConcurrentModificationException exception) {
                     /* Reason of the Exception:
                      * it is not generally permissible for one thread to modify a Collection
-                     * while another thread is iterating over it. In general, the results of
-                     * the iteration are undefined under these circumstances. Some Iterator
+                     * while another thread is iterating over it.
+                     * In general, the results of
+                     * the iteration are undefined under these circumstances.
+                     * Some Iterator
                      * implementations (including those of all the general purpose collection
                      * implementations provided by the JRE) may choose to throw this exception
-                     * if this behavior is detected. Iterators that do this are known as fail-fast
-                     * iterators, as they fail quickly and cleanly, rather that risking arbitrary,
+                     * if this behavior is detected.
+                     * Iterators that do this are known as fail-fast
+                     * iterators,
+                     * as they fail quickly and cleanly, rather than risking arbitrary,
                      * non-deterministic behavior at an undetermined time in the future.
                      *
                      * */
@@ -133,16 +132,16 @@ public class HomepageController implements Controller {
         thisGame.listeners().addPropertyChangeListener(Game.PROPERTY_PLAYERS, gameListener);
 
         for (Player player: app.getCoreData().getPlayers()) {
-            addPlayerSlot(playerBar, player, homepageScrollPane, mainScene);
+            addPlayerSlot(playerBar, player);
         }
 
-        creatExamplePlayersBar(playerBar, homepageScrollPane, mainScene);
+        creatExamplePlayersBar(playerBar);
 
         return parent;
     }
 
     private void addPlayerSlot( VBox playerBar,
-                                Player player, ScrollPane homepageScrollPane, HBox mainScene
+                                Player player
     ) throws IOException {
 
         //show only a playerSlot in the homepage
@@ -155,7 +154,7 @@ public class HomepageController implements Controller {
     }
 
     private void toControlPanel( TextField userName ) {
-        if(!userName.getText().equals("") && checkName(userName,app)){
+        if( !userName.getText().isEmpty() && checkName(userName, app)){
             //if the text NOT EMPTY then do this!
             Player player = new Player()
                     .setName(userName.getText())
@@ -179,11 +178,11 @@ public class HomepageController implements Controller {
         }
     }
 
-    public void creatExamplePlayersBar( VBox playerBar, ScrollPane homepageScrollPane, HBox mainScene ) throws IOException {
+    public void creatExamplePlayersBar( VBox playerBar ) throws IOException {
         if(IS_DEBUG){
             for (int i = 0; i < 20; i++) {
                 Player player = new Player().setName("player " + i);
-                addPlayerSlot(playerBar, player, homepageScrollPane, mainScene);
+                addPlayerSlot(playerBar, player);
             }
         }
     }
