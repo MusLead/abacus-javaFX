@@ -6,7 +6,7 @@ Sequence of design a programm:
 3. [Make a UML Diagram (How the objects will communicate with each other!)](WireframesUML/Sempoa Wireframes Diagram.drawio.png) 
 
 Sequence of Programming:
-1. Create a project with gradle and creating a package name
+1. Create a project with Gradle and create a package name
 2. Adjust dependencies with fulib
 3. GenMode and generate Classes Objects
 4. Make a AppServiceTest.java and write some simple logical test!
@@ -40,5 +40,6 @@ Some Notes for the future:
 ## TODO
 TODO:
 1. MAKE A TEST APP CIRCULATION! ERROR!
-2. I want when the file corrupted while loading the file
+2. Problem: I want when the file corrupted while loading the file
   it could give an alert dialog that this app cannot be loaded!
+-> make the circulation program like 
