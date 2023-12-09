@@ -21,8 +21,8 @@ public class AppTest extends ApplicationTest
     @Test
     public void changeView() {
 
-        final String startTitle = "PMon - Main Menu";
-        final String battleTitle = "PMon - Encounter";
+        final String startTitle = "Homepage";
+        final String optionTitle = "Option";
 
         //• Initialen Fenstertitel prüfen
         assertEquals(startTitle,stage.getTitle());
@@ -38,10 +38,10 @@ public class AppTest extends ApplicationTest
         clickOn("#startButton");
 
         //• Neuen Fenstertitel prüfen
-        assertEquals(battleTitle,stage.getTitle());
+        assertEquals(optionTitle,stage.getTitle());
 
         //• Leave-Button klicken
-        clickOn("#leaveButton");
+        clickOn("#mainMenuButton");
 
         //• Fenstertitel erneut prüfen
         assertEquals(startTitle,stage.getTitle());
@@ -50,5 +50,5 @@ public class AppTest extends ApplicationTest
         userName = lookup("#nameInput").queryAs(TextField.class);
         assertEquals("", userName.getText());
     }
-    
+
 }
