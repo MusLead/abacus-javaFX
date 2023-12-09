@@ -20,6 +20,7 @@ import java.util.Objects;
 
 import static de.uniks.abacus.Constant.*;
 import static de.uniks.abacus.model.AppService.checkName;
+import static de.uniks.abacus.model.AppService.createPlayer;
 
 public class HomepageController implements Controller {
     private final App app;
@@ -156,10 +157,7 @@ public class HomepageController implements Controller {
     private void toControlPanel( TextField userName ) {
         if( !userName.getText().isEmpty() && checkName(userName, app)){
             //if the text NOT EMPTY then do this!
-            Player player = new Player()
-                    .setName(userName.getText())
-                    .withHistories()
-                    .setGame(app.getPlayersList());
+            Player player = createPlayer(userName, app.getPlayersList());
 
             app.show(new OptionController(this.app, player));
         } else {
