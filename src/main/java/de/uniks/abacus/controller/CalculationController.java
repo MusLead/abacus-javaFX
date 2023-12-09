@@ -79,15 +79,17 @@ public class CalculationController implements Controller {
             userInput = Integer.parseInt(answerField.getText());
             Result result = appService.creatNewResult(player, firstValue, operation,
                                                       secondValue, userInput);
-            if(!app.getCoreData().getPlayers().contains(result.getPlayer())) {
-                //if app DOES NOT CONTAIN Player, then add them to the app!
-                app.getCoreData().withPlayers(result.getPlayer());
-            }
             app.show(new ResultController(this.app,result, origin, bound));
         } catch(NumberFormatException e){
-            String line = "invalid input!\n" + "because " + e.getMessage() + " or more than 10 digits";
+            String line = "invalid input!\n" + "because of " + e.getMessage();
             System.err.println(line);
-            app.showDialog("ups...", line);
+            app.showDialog("Ups...", line);
+        } catch (IllegalArgumentException e){
+            String line = "invalid input!\n" + "because of " + e.getMessage();
+            line += "\nPlease contact the developer\n(CalculationController.java -> toResultScene())";
+            System.err.println(line);
+            Alert alert = app.showDialog("ERROR! TERMINATION", line);
+            alert.setOnCloseRequest(val -> System.exit(1));
         }
     }
 

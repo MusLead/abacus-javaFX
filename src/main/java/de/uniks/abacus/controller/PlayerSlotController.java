@@ -46,6 +46,7 @@ public class PlayerSlotController implements Controller{
         wrongText.setText("Wrong: " + player.getWrongSum());
         deleteButton.setOnAction(event -> app.deletePlayer(player));
         continueButton.setOnAction(event -> app.show(new OverviewController(app, player)));
+        parent.setId(name);
         return parent;
     }
 

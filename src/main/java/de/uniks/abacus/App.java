@@ -53,6 +53,7 @@ public class App extends Application {
         controller.destroy();
     }
 
+    @SuppressWarnings("CallToPrintStackTrace")
     public void show( Controller controller)
     {
         controller.init();
@@ -115,7 +116,7 @@ public class App extends Application {
     }
 
     /**
-     * this function show a default value if the bound is 0 and the origin also 0
+     * this function shows a default value if the bound is 0 and the origin also 0
      * otherwise, it will give a value that has been saved by previous operation
      * @param optMenuButton Operation button
      * @param originField under bound value for random
@@ -125,7 +126,7 @@ public class App extends Application {
                                          TextField originField, TextField boundField)
     {
         if(this.bound == 0 && this.origin == 0){
-            //if the bound and origin still 0 set default value.
+            //if the bound and origin still 0 set the default value.
             // by default origin = 0
             this.bound = 10000;
             this.operation = '+';
@@ -136,6 +137,16 @@ public class App extends Application {
 
     }
 
+    /**
+     * This Function is being used especially in OptionController.
+     * But we want to make sure
+     * that the value of the option remains the same after a game (continue after submit the value)
+     * so it is being set here.
+     * @param player the player who plays the game
+     * @param originField the lower bound
+     * @param boundField the upper bound
+     * @param optMenuButton the operation
+     */
     public void toCalculation( Player player, TextField originField, TextField boundField, MenuButton optMenuButton )
     {
         this.currentPlayer = player;
@@ -160,46 +171,59 @@ public class App extends Application {
             }
             show(new CalculationController(this, player, firstValue, operation, secondValue, origin, bound));
         } catch (Exception e){
-            showDialog("ERROR",e.getMessage());
+            showDialog("Ups... Something is wrong",e.getMessage());
+            if(e instanceof NumberFormatException){
+                /*
+                TODO update
+                 if you want you could put setLimitOriginBounds for multiplication only lower...
+                 that will increase the overhead of the listeners, but it could maybe help users only input
+                 sufficient value.
+                 Remember to change the setLimitOriginBounds to other listeners,
+                 if the operations change (delete the old listener and add new listeners)
+                 */
+                // this occurs because the bounds are too high. suppose it is for multiplication
+                // the set the number below
+                boundField.setText("10000");
+                originField.setText("9999");
+            }
         }
     }
 
+    /**
+     * Limit the input text while typing! <br> <br>
+     * WARNING!
+     * DO NOT FORGET! <br>
+     * This listener will be used in another class, if the scene from the class is closed,
+     * then delete the listener too!
+     * <a href="https://stackoverflow.com/questions/22714268/how-to-limit-the-amount-of-characters-a-javafx-textfield"> more information </a>
+     * @param originField the lower bound
+     * @param boundField the upper bound
+     * @param listenerList the listener to make sure the digits are within the bound!
+     */
     public void setLimitOriginBound( TextField originField, TextField boundField,
                                      List<ChangeListener<Number>> listenerList)
     {
-        //https://stackoverflow.com/questions/22714268/how-to-limit-the-amount-of-characters-a-javafx-textfield
+        listenerList.add(origin_bound_listener(originField));
+        listenerList.add(origin_bound_listener(boundField));
+    }
+
+    protected ChangeListener<Number> origin_bound_listener( TextField field )
+    {
         ChangeListener<Number> originListener = ( observable, oldValue, newValue ) -> {
             if (newValue.intValue() > oldValue.intValue()) {
-                // Check if the new character is greater than LIMIT
-                if (originField.getText().length() >= MAX_INT_LENGTH) {
-                    // if it's MAX_INT_LENGTH (10th) character then just setText to previous one
-                    originField.setText(originField.getText().substring(0, MAX_INT_LENGTH));
+                // Check if the new character is greater than the LIMIT
+                if (field.getText().length() >= MAX_INT_LENGTH) {
+                    // if it's MAX_INT_LENGTH (10th) character then just setText to the previous one
+                    field.setText(field.getText().substring(0, MAX_INT_LENGTH));
                 }
             }
         };
-        originField.lengthProperty().addListener(originListener);
-
-        ChangeListener<Number> boundFieldListener = ( observable, oldValue, newValue ) -> {
-            if (newValue.intValue() > oldValue.intValue()) {
-                // Check if the new character is greater than LIMIT
-                if (boundField.getText().length() >= MAX_INT_LENGTH) {
-                    // if it's MAX_INT_LENGTH (10th) character then just setText to previous one
-                    boundField.setText(boundField.getText().substring(0, MAX_INT_LENGTH));
-                }
-            }
-        };
-        boundField.lengthProperty().addListener(boundFieldListener);
-        /*
-        * this listener will be used in another class, if the scene from the class is closed
-        * then delete the listener too!
-        * */
-        listenerList.add(originListener);
-        listenerList.add(boundFieldListener);
+        field.lengthProperty().addListener(originListener);
+        return originListener;
     }
 
     public void deletePlayer (Player player)
     {
-        player.setName(null);
         coreData.withoutPlayers(player);
     }
 
@@ -208,7 +232,7 @@ public class App extends Application {
         stage.sizeToScene();
     }
 
-    public void showDialog(String header, String text)
+    public Alert showDialog(String header, String text)
     {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText(header);
@@ -216,5 +240,6 @@ public class App extends Application {
         alert.initOwner(stage);
         alert.initModality(Modality.APPLICATION_MODAL);
         alert.show();
+        return alert;
     }
 }

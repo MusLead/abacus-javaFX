@@ -29,11 +29,13 @@ public class HomepageController implements Controller {
 
     private TextField userName;
 
+    PropertyChangeListener gameListener;
+
     private final List<PropertyChangeListener> playerListnerList = new ArrayList<>();
+
     public HomepageController( App app ) {
         this.app = app;
     }
-
 
     @Override
     public String getTitle() {
@@ -69,80 +71,87 @@ public class HomepageController implements Controller {
         // Set Start button onAction
         startButton.setOnAction(event -> toControlPanel(userName));
 
-        if(app.getCoreData().getPlayers().size() == 0 && !IS_DEBUG){
+        if( app.getCoreData().getPlayers().isEmpty() && !IS_DEBUG){
             mainScene.getChildren().remove(homepageScrollPane);
         }
 
-        int id = 0;
-        for (Player player: app.getCoreData().getPlayers()) {
-            addPlayerSlot(parent, playerBar, id, player, homepageScrollPane,mainScene);
-            id++;
-        }
+        gameListener = val -> {
 
-        creatExamplePlayersBar(playerBar, parent, homepageScrollPane, mainScene);
-
-        return parent;
-    }
-
-    private void addPlayerSlot( Parent parent, VBox playerBar, int id,
-                                Player player, ScrollPane homepageScrollPane, HBox mainScene
-    ) throws IOException {
-
-        PropertyChangeListener playerListener = e -> {
-            /*
-             * In case we are in the Homepage, and we want to delete
-             * the player, then do this!
-             */
-            if(e.getNewValue() == null) {
+            if(val.getNewValue() == null) { // only if we do not add a new user!
+                /*
+                 * In case we are in the Homepage, and we want to delete
+                 * the player, then do this!
+                 */
                 try {
                     // Get the Children of the VBox
                     for (Node playerSlot : playerBar.getChildren()) {
                         // if the Node has HBox then continue to the next code!
                         if (playerSlot instanceof HBox playerSlotHBox) {
-                            Text text = (Text) playerSlotHBox.getChildren().get(0);
+
                             // find Text with e.getOldValue()
                             // WARNING: that is why the name should not be the same!
-                            if (e.getOldValue() == text.getText()) {
+                            String slotId = playerSlot.getId();
+                            String oldValId =  ((Player) val.getOldValue()).getId();
+                            if (oldValId.equals(slotId)) {
                                 playerBar.getChildren().remove(playerSlot);
                             }
                         }
                     }
                 } catch (ConcurrentModificationException exception) {
                     /* Reason of the Exception:
-                    * it is not generally permissible for one thread to modify a Collection
-                    * while another thread is iterating over it. In general, the results of
-                    * the iteration are undefined under these circumstances. Some Iterator
-                    * implementations (including those of all the general purpose collection
-                    * implementations provided by the JRE) may choose to throw this exception
-                    * if this behavior is detected. Iterators that do this are known as fail-fast
-                    * iterators, as they fail quickly and cleanly, rather that risking arbitrary,
-                    * non-deterministic behavior at an undetermined time in the future.
-                    *
-                    * */
-                    //System.err.println("IGNORE: " + exception.getCause());
+                     * it is not generally permissible for one thread to modify a Collection
+                     * while another thread is iterating over it. In general, the results of
+                     * the iteration are undefined under these circumstances. Some Iterator
+                     * implementations (including those of all the general purpose collection
+                     * implementations provided by the JRE) may choose to throw this exception
+                     * if this behavior is detected. Iterators that do this are known as fail-fast
+                     * iterators, as they fail quickly and cleanly, rather that risking arbitrary,
+                     * non-deterministic behavior at an undetermined time in the future.
+                     *
+                     * */
+                    // System.err.println("IGNORE: " + exception.getCause());
                 }
-                if(mainScene.getChildren().size() < 2 &&
-                        (app.getCoreData().getPlayers().size() != 0 ||
-                                app.getCoreData().getPlayers().get(0).getName() == null)) {
+
+                /*
+                 * This if-statement makes sure that the ScrollPane (represents
+                 * lists of players could be hidden if there is no player, and otherwise)
+                 */
+                if(mainScene.getChildren().size() < 2 && // meaning: the list of players is not being set
+                        !app.getCoreData().getPlayers().isEmpty() ){
                     //if on the screen only a children from HBox and there is at least a player
                     mainScene.getChildren().add(homepageScrollPane);
-                } else if(app.getCoreData().getPlayers().size() == 0 ||
-                        app.getCoreData().getPlayers().get(0).getName() == null) {
+                } else if(app.getCoreData().getPlayers().isEmpty() ) {
                     //only if there is no player, then remove the pane
                     mainScene.getChildren().remove(homepageScrollPane);
                 }
             }
+            // Make sure the size of the app suitable (UI/UX Optimisation)
             parent.autosize();
             app.updateStageSize();
         };
-        player.listeners().addPropertyChangeListener(Player.PROPERTY_NAME, playerListener);
-        playerListnerList.add(playerListener);
+        Game thisGame = app.getCoreData();
+        thisGame.listeners().addPropertyChangeListener(Game.PROPERTY_PLAYERS, gameListener);
+
+        for (Player player: app.getCoreData().getPlayers()) {
+            addPlayerSlot(playerBar, player, homepageScrollPane, mainScene);
+        }
+
+        creatExamplePlayersBar(playerBar, homepageScrollPane, mainScene);
+
+        return parent;
+    }
+
+    private void addPlayerSlot( VBox playerBar,
+                                Player player, ScrollPane homepageScrollPane, HBox mainScene
+    ) throws IOException {
 
         //show only a playerSlot in the homepage
         PlayerSlotController playerSlotController = new PlayerSlotController(app, player);
         playerSlotController.init();
-        player.setId(id);
-        playerBar.getChildren().add(playerSlotController.render());
+        Parent playerSlot = playerSlotController.render();
+        playerBar.getChildren().add(playerSlot);
+        player.setId(playerSlot.getId());
+
     }
 
     private void toControlPanel( TextField userName ) {
@@ -160,11 +169,7 @@ public class HomepageController implements Controller {
 
     @Override
     public void destroy() {
-        for (int i = 0; i < app.getCoreData().getPlayers().size() ; i++) {
-            Player currentPlayer = app.getCoreData().getPlayers().get(i);
-            PropertyChangeListener listener = playerListnerList.get(i);
-            currentPlayer.listeners().removePropertyChangeListener(Player.PROPERTY_NAME,listener);
-        }
+        app.getCoreData().listeners().removePropertyChangeListener(Game.PROPERTY_PLAYERS, gameListener);
     }
 
     @Override
@@ -174,11 +179,11 @@ public class HomepageController implements Controller {
         }
     }
 
-    public void creatExamplePlayersBar( VBox playerBar, Parent parent, ScrollPane homepageScrollPane, HBox mainScene ) throws IOException {
+    public void creatExamplePlayersBar( VBox playerBar, ScrollPane homepageScrollPane, HBox mainScene ) throws IOException {
         if(IS_DEBUG){
             for (int i = 0; i < 20; i++) {
                 Player player = new Player().setName("player " + i);
-                addPlayerSlot(parent, playerBar, i, player, homepageScrollPane, mainScene);
+                addPlayerSlot(playerBar, player, homepageScrollPane, mainScene);
             }
         }
     }

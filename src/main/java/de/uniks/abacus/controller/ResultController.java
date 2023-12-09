@@ -55,13 +55,14 @@ public class ResultController implements Controller{
         parent = FXMLLoader.load(
                 Objects.requireNonNull(Controller.class.getResource("/de/uniks/abacus/views/ResultPanel.fxml")));
 
+
         if(result == null){
-            //FIXME the alert is not showing on the screen!
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Program Error!");
-            alert.setContentText("Result is empty, please contact developer!");
+            String line = "Result is empty, please contact developer!\n(ResultController.java -> render()";
+            System.err.println(line);
+            Alert alert = app.showDialog("Program Error!", line);
             alert.setOnCloseRequest(e -> System.exit(1));
         }
+
         assert result != null;
 
         // Lookup

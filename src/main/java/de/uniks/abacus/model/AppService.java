@@ -37,7 +37,7 @@ public class AppService {
     /**
      * Check the result whether the user answer correct or wrong
      * either wrong or correct.
-     * the player and the history should increase their
+     * The player and the history should increase their
      * sum and total of (wrong or correct).
      * This method should only be used if the
      * right result has been calculated and the result has
@@ -69,7 +69,8 @@ public class AppService {
 
     /**
      * This method finds a new task if the current Task has the result of not natural numbers
-     * REMEMBER! this return value does not return the value back to the player
+     * REMEMBER!
+     * This return value does not return the value back to the player
      *
      * @param origin      the lowest value for the random
      * @param upperBound  the highest value for the random
@@ -87,8 +88,8 @@ public class AppService {
             /*
              * we want to find a value for the first and the second that
              * first always bigger than the second.
-             * we can see that from the secondVal origin,  we only accept
-             * value that always less big than the first.
+             * we can see that from the secondVal origin, we only accept
+             * value that is always less big than the first.
              * */
             firstValNow = random.nextInt(origin + 1,upperBound);
             assert firstValNow > origin : "firstVal: " + firstValNow + "secondVal: " + secondValNow + " Origin:" + origin;
@@ -121,9 +122,9 @@ public class AppService {
 
     /**
      * This function only be used after the user gives an Answer
-     * We want to know everytime the new results is being created, the results should be able
-     * to access either from player or from the history.
-     * The origin and bound are for the checkDivision, to find another alternative number
+     * We want to know everytime the new results are being created, the results should be able
+     * to access either from the player or from the history.
+     * The origin and bound are for the checkDivision to find another alternative number
      * if the right result is not within the set of Natural Number
      *
      * @param player    current player
@@ -155,7 +156,7 @@ public class AppService {
             player.withHistories(currentHistory);
         }
 
-        // check the result, that has a Player and also a History, whether  correct or wrong
+        // check the result, that has a Player and also a History, whether correct or wrong
         checkResult(result);
 
         return result;
@@ -208,12 +209,22 @@ public class AppService {
         for (int i = 0; i < MAX_INT_LENGTH - 1 ; i++) {
             maxVal = (maxVal * 10) + 9;
         }
+
         // maxVal = 99999... (depend on the length of the MAX_INT_LENGTH
-        long result;
+        long result = (long) firstValue * secondValue;
+
+        if(result <= maxVal && result >= (-1 * maxVal)) {
+            return new Result().setResultStatus(TEMP_STATUS)
+                    .setFirstVal(firstValue).setSecondVal(secondValue);
+        }
+
+        int count = 0;
         do {
             firstValue = random.nextInt(origin,bound);
             secondValue = random.nextInt(origin,bound);
             result = (long) firstValue * secondValue;
+            if(count >= 10000) throw new NumberFormatException("The results are too high!\nPlease lower the bound!");
+            count++;
         } while(result > maxVal || result < (-1 * maxVal));
 
         return new Result().setResultStatus(TEMP_STATUS)
