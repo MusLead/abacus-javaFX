@@ -6,8 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="976bb249-2aba-4e13-b7bf-222b4e3fe8d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/coreData.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/data/coreData.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/uniks/abacus/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/uniks/abacus/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/uniks/abacus/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/uniks/abacus/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/CalculationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/CalculationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/HomepageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/PlayerSlotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/PlayerSlotController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/ResultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/ResultController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/uniks/abacus/model/AppService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/uniks/abacus/model/AppService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,33 +33,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="sempoa-javaFX" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="sempoa-javaFX" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="sempoa-javaFX" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="sempoa-javaFX" type="f1a62948:ProjectNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="sempoa-javaFX" type="f1a62948:ProjectNode" />
-                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -70,12 +50,23 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="modular-project" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2JstKJTt4QrUNXB9J96y9Zvv6a1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -93,7 +84,8 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/aslam/Documents/GitHub/sempoa-javaFX/src&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/aslam/Documents/GitHub/sempoaJavaFX&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -123,13 +115,16 @@
       <recent name="$PROJECT_DIR$/src/gen/java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/main" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/WireframesUML" />
       <recent name="$PROJECT_DIR$/Wireframes" />
-      <recent name="$PROJECT_DIR$/src/main" />
-      <recent name="$PROJECT_DIR$/src/main/resources/de/uniks/abacus/views" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
@@ -139,11 +134,11 @@
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="de.uniks.abacus.Main" />
-      <module name="sempoa-javaFX.main" />
+      <module name="sempoaJavaFX.main" />
       <option name="PROGRAM_PARAMETERS" value="java --module-path ${PATH_TO_FX} --add-modules javafx.controls, javafx.graphics, javafx.fxml" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="de.uniks.abacus.*" />
+          <option name="PATTERN" value=".*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -151,7 +146,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppServiceTest.checkMultiplicationLimit" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AppServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -164,7 +159,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;de.uniks.abacus.model.AppServiceTest.checkMultiplicationLimit&quot;" />
+            <option value="&quot;de.uniks.abacus.model.AppServiceTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -172,9 +167,10 @@
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="AppTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AppServiceTest.checkDivisionTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -187,7 +183,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;de.uniks.abacus.AppTest&quot;" />
+            <option value="&quot;de.uniks.abacus.model.AppServiceTest.checkDivisionTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -195,9 +191,10 @@
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="AppTest.changeView" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AppTest (2)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -210,7 +207,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;de.uniks.abacus.AppTest.changeView&quot;" />
+            <option value="&quot;AppTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -218,9 +215,10 @@
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="sempoa-javaFX [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="sempoaJavaFX [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -231,7 +229,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="test" />
+            <option value="dependencies" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -239,30 +237,46 @@
       <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="Scratch" type="Java Scratch" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Scratch" />
-      <option name="SCRATCH_FILE_URL" value="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_1.java" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="sempoaJavaFX [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Gradle.sempoa-javaFX [test]" />
-      <item itemvalue="Gradle.AppServiceTest.checkMultiplicationLimit" />
-      <item itemvalue="Gradle.AppTest" />
-      <item itemvalue="Gradle.AppTest.changeView" />
-      <item itemvalue="Java Scratch.Scratch" />
+      <item itemvalue="Gradle.AppServiceTest.checkDivisionTest" />
+      <item itemvalue="Gradle.sempoaJavaFX [dependencies]" />
+      <item itemvalue="Gradle.AppTest (2)" />
+      <item itemvalue="Gradle.sempoaJavaFX [run]" />
+      <item itemvalue="Gradle.AppServiceTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.AppTest" />
-        <item itemvalue="Gradle.sempoa-javaFX [test]" />
-        <item itemvalue="Gradle.AppTest.changeView" />
-        <item itemvalue="Gradle.AppServiceTest.checkMultiplicationLimit" />
-        <item itemvalue="Java Scratch.Scratch" />
+        <item itemvalue="Gradle.AppServiceTest" />
+        <item itemvalue="Gradle.sempoaJavaFX [run]" />
+        <item itemvalue="Gradle.AppTest (2)" />
+        <item itemvalue="Gradle.sempoaJavaFX [dependencies]" />
+        <item itemvalue="Gradle.AppServiceTest.checkDivisionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -284,6 +298,10 @@
       <workItem from="1673814109738" duration="599000" />
       <workItem from="1673819609450" duration="3249000" />
       <workItem from="1673867750914" duration="5719000" />
+      <workItem from="1702086657262" duration="60000" />
+      <workItem from="1702086724920" duration="1400000" />
+      <workItem from="1702088691568" duration="3604000" />
+      <workItem from="1702092511924" duration="4810000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1672879844809</created>
@@ -537,7 +555,23 @@
       <option name="project" value="LOCAL" />
       <updated>1673953702204</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="refactor: update PROGRAMMING.md">
+      <option name="closed" value="true" />
+      <created>1702084275110</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1702084275110</updated>
+    </task>
+    <task id="LOCAL-00038" summary="refactor: update FXML files&#10;&#10;to avoid warning from execution">
+      <option name="closed" value="true" />
+      <created>1702084345837</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1702084345837</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,7 +610,9 @@
     <MESSAGE value="docs: gitnore edit" />
     <MESSAGE value="refactor: edit homepage panes if no players" />
     <MESSAGE value="docs: add some TODO" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: add some TODO" />
+    <MESSAGE value="refactor: update PROGRAMMING.md" />
+    <MESSAGE value="refactor: update FXML files&#10;&#10;to avoid warning from execution" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: update FXML files&#10;&#10;to avoid warning from execution" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -584,7 +620,7 @@
         <line-breakpoint enabled="true" type="java-line">
           <condition expression="result == null" language="JAVA" />
           <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/CalculationController.java</url>
-          <line>85</line>
+          <line>80</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -596,16 +632,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/App.java</url>
           <line>155</line>
           <option name="timeStamp" value="89" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/de/uniks/abacus/AppTest.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="90" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/HomepageController.java</url>
-          <line>131</line>
-          <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/HomepageController.java</url>
@@ -623,9 +649,25 @@
           <option name="timeStamp" value="112" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/controller/HomepageController.java</url>
-          <line>134</line>
-          <option name="timeStamp" value="113" />
+          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/model/AppService.java</url>
+          <line>215</line>
+          <option name="timeStamp" value="131" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <condition expression="count &gt;= 10000" language="JAVA" />
+          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/model/AppService.java</url>
+          <line>225</line>
+          <option name="timeStamp" value="132" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/uniks/abacus/model/AppService.java</url>
+          <line>229</line>
+          <option name="timeStamp" value="133" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/AppTest.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="136" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
