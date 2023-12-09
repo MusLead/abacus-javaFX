@@ -15,6 +15,7 @@ public class Player
    public static final String PROPERTY_HISTORIES = "histories";
    public static final String PROPERTY_NAME = "name";
    public static final String PROPERTY_RESULTS = "results";
+   public static final String PROPERTY_GAME = "game";
    public static final String PROPERTY_ID = "id";
    private int rightSum;
    private int wrongSum;
@@ -22,7 +23,8 @@ public class Player
    protected PropertyChangeSupport listeners;
    private String name;
    private List<Result> results;
-   private int id;
+   private Game game;
+   private String id;
 
    public int getRightSum()
    {
@@ -210,19 +212,46 @@ public class Player
       return this;
    }
 
-   public int getId()
+   public Game getGame()
    {
-      return this.id;
+      return this.game;
    }
 
-   public Player setId(int value)
+   public Player setGame(Game value)
    {
-      if (value == this.id)
+      if (this.game == value)
       {
          return this;
       }
 
-      final int oldValue = this.id;
+      final Game oldValue = this.game;
+      if (this.game != null)
+      {
+         this.game = null;
+         oldValue.withoutPlayers(this);
+      }
+      this.game = value;
+      if (value != null)
+      {
+         value.withPlayers(this);
+      }
+      this.firePropertyChange(PROPERTY_GAME, oldValue, value);
+      return this;
+   }
+
+   public String getId()
+   {
+      return this.id;
+   }
+
+   public Player setId(String value)
+   {
+      if (Objects.equals(value, this.id))
+      {
+         return this;
+      }
+
+      final String oldValue = this.id;
       this.id = value;
       this.firePropertyChange(PROPERTY_ID, oldValue, value);
       return this;
@@ -251,6 +280,7 @@ public class Player
    {
       this.withoutResults(new ArrayList<>(this.getResults()));
       this.withoutHistories(new ArrayList<>(this.getHistories()));
+      this.setGame(null);
    }
 
    @Override
@@ -258,6 +288,7 @@ public class Player
    {
       final StringBuilder result = new StringBuilder();
       result.append(' ').append(this.getName());
+      result.append(' ').append(this.getId());
       return result.substring(1);
    }
 }

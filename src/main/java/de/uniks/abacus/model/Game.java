@@ -26,6 +26,7 @@ public class Game
       if (!this.players.contains(value))
       {
          this.players.add(value);
+         value.setGame(this);
          this.firePropertyChange(PROPERTY_PLAYERS, null, value);
       }
       return this;
@@ -53,6 +54,7 @@ public class Game
    {
       if (this.players != null && this.players.remove(value))
       {
+         value.setGame(null);
          this.firePropertyChange(PROPERTY_PLAYERS, value, null);
       }
       return this;

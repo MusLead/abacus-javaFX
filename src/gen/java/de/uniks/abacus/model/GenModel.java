@@ -6,11 +6,18 @@ import org.fulib.builder.reflect.Link;
 
 import java.util.List;
 
+/**
+ * Explanation of the Model:
+ * History: to keep the track how many results has the player given in one play
+ * Result: represent as one math question
+ * Player: The name of player that has a lot of results and could have more than a play (histories)
+ * Game: Lists of players
+ */
 @SuppressWarnings("unused")
 public class GenModel implements ClassModelDecorator{
 
     class Game {
-        @Link
+        @Link("game")
         List<Player> players;
     }
 
@@ -18,11 +25,13 @@ public class GenModel implements ClassModelDecorator{
         int rightSum;
         int wrongSum;
         String name;
-        int id;
+        String id;
         @Link("player")
         List<History> histories;
         @Link("player")
         List<Result> results;
+        @Link("players")
+        Game game;
     }
 
     class History {

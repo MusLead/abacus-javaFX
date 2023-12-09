@@ -43,14 +43,14 @@ public class AppService {
      * right result has been calculated and the result has
      * a player and a history
      *
-     * @param result object that fulfill the condition
+     * @param result object that fulfills the condition
      */
     private void checkResult(Result result) {
 
         if(result.getPlayer() == null || result.getHistory() == null){
-            throw new IllegalArgumentException("The program is incomplete!");
-        } else if (result.getRightVal() == 0){
-            throw new IllegalArgumentException("The value is 0 or less than 0, checkDivision usage!");
+            throw new IllegalArgumentException("The program is incomplete!\n(AppService.java -> checkResult())");
+        } else if (result.getRightVal() == 0 && result.getOperation().equals("/")){
+            throw new IllegalArgumentException("The value is 0 or less than 0, checkDivision usage!\n(AppService.java -> checkResult())");
         }
 
         boolean isCorrect = result.getRightVal() == result.getResultVal();
@@ -68,7 +68,7 @@ public class AppService {
     }
 
     /**
-     * This method find a new task if the current Task has the result of not natural numbers
+     * This method finds a new task if the current Task has the result of not natural numbers
      * REMEMBER! this return value does not return the value back to the player
      *
      * @param origin      the lowest value for the random
@@ -132,7 +132,9 @@ public class AppService {
      * @param secondVal second value
      * @return current result
      */
-    public Result creatNewResult(Player player, int firstVal, char operation, int secondVal, int userInput) {
+    public Result creatNewResult(Player player, int firstVal,
+                                 char operation, int secondVal, int userInput)
+            throws IllegalArgumentException {
 
         Result result = new Result()
                 .setPlayer(player)
@@ -142,6 +144,7 @@ public class AppService {
                 .setRightVal(calculate(firstVal,operation,secondVal))
                 .setResultVal(userInput);
 
+        // check which history should the result be put in
         int currentHistorySize = player.getHistories().size();
         if(currentHistorySize != 0) {
             //take the last history that is being created and put the result in
@@ -153,13 +156,7 @@ public class AppService {
         }
 
         // check the result, that has a Player and also a History, whether  correct or wrong
-        try {
-            checkResult(result);
-        } catch (IllegalArgumentException exception) {
-            System.err.println(exception.getMessage());
-        }
-
-
+        checkResult(result);
 
         return result;
     }
